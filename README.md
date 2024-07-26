@@ -1114,6 +1114,123 @@ Se analizan las variables que podrian ayudarnos a definir como es un cliente mal
 
   number_times_delayed_payment_loan_30_59_days
  > [!NOTE] 
- > ![](Imagenes/32.png)
+ > ![32](https://github.com/user-attachments/assets/85fed803-9088-4dee-b967-99b762a8be57)
 
-   
+ Consulta:
+
+   ~~~
+  #CALCULAR LOS CUARTILES DE MALOS PAGADORES POR VARIABLE
+  WITH base_data AS (
+      SELECT 
+          age,
+          default_flag
+      FROM `riesgo-relativo-p3.Data_Set.Data_Set_Completo`
+  ),
+  ---Calcular los cuartiles dependiendo la edad.
+  quartiles AS (
+      SELECT 
+          age,
+          default_flag,
+          NTILE(4) OVER (ORDER BY age) AS age_quartile
+      FROM base_data ---datos de donde provienen las variables
+  ),
+  -- Calcula el número total de malos pagadores 
+  quartile_risk AS (
+      SELECT 
+          age_quartile,
+          COUNT(*) AS total_count,
+          SUM(default_flag) AS total_bad_payers,
+      FROM quartiles
+      GROUP BY age_quartile
+  ),
+  ---rango de edad (mínimo y máximo) para cada cuartil.
+  quartile_ranges AS (
+      SELECT
+          age_quartile,
+          MIN(age) AS min_age,
+          MAX(age) AS max_age
+      FROM quartiles
+      GROUP BY age_quartile
+  )
+  SELECT 
+      q.age_quartile,
+      q.total_count,
+      q.total_bad_payers,
+      r.min_age,
+      r.max_age
+  FROM quartile_risk q
+  JOIN quartile_ranges r
+  ON q.age_quartile = r.age_quartile
+  ORDER BY age_quartile ASC;
+   ~~~
+
+
+4.- Calcular la correlaciòn entre variables nùmericas continuas.
+
+ Last_month_salary / age
+ > [!NOTE] 
+ >![34](https://github.com/user-attachments/assets/335fd20e-55dd-4fa6-b1b7-01ea346ee655)
+
+  Interpretaciòn: El coeficiente de correlación es 0.03142, lo que sugiere una relación muy débil y positiva entre la edad y el costo mensual    del salario. Esto significa que, en general, a medida que aumenta la edad, el costo mensual del salario tiende a aumentar ligeramente, pero    la relación no es fuerte. 
+
+ Debt_ratio / age
+ > [!NOTE] 
+ >![35](https://github.com/user-attachments/assets/813ed8f5-43f2-44de-95b0-c8af7a12f70b)
+
+  Interpretaciòn: El coeficiente de correlación es 0.0205, lo que sugiere una relación muy débil y positiva entre la edad y el ratio de deuda.   Esto significa que, en general, a medida que aumenta la edad, el ratio de deuda tiende a aumentar ligeramente, pero la relación no es fuerte.
+
+ Debt_ratio / last_month_salary
+ > [!NOTE] 
+ > ![36](https://github.com/user-attachments/assets/95c82983-71f4-416f-a0e1-dde9f824b5e8)
+
+  Interpretaciòn: El coeficiente de correlación es -0.0059, lo que sugiere una relación muy débil y negativa entre el ratio de deuda y el        ingreso mensual. Esto significa que, en general, a medida que aumenta el ratio de deuda, el ingreso mensual tiende a disminuir ligeramente,    pero la relación no es fuerte.
+
+  Debt_ratio / Using_lines_not_secured_personal_asset
+ > [!NOTE] 
+ >![37](https://github.com/user-attachments/assets/6a268257-1496-4ea0-a3ac-86995a81dc1a)
+
+  Interpretaciòn: El coeficiente de correlación es 0.015, lo que sugiere una relación muy débil y positiva entre el ratio de deuda y el uso de   credito en lineas no aseguradas. Esto significa que, en general, a medida que aumenta el ratio de deuda, el uso de credito en lineas no asegurada tiende a aumentar ligeramente, pero la relación no es fuerte.
+
+ Consulta: 
+  ~~~
+ SELECT 
+ CORR(age,last_month_salary) AS age_last_month,
+ CORR (age,debt_ratio) AS age_debt_ratio,
+ CORR (debt_ratio,last_month_salary) AS debt_last_month,
+ CORR (debt_ratio, using_lines_not_secured_personal_assets) AS debt_usin_lines
+  FROM `riesgo-relativo-p3.Data_Set.Data_Set_Completo` 
+ ~~~
+
+
+5.- Calcular riesgo relativo
+
+Se analizan las variables para determinar el numero de veces que corre el riesgo de suceder el evento (malos pagadores):
+
+  Age
+ 
+ > [!NOTE] 
+ > ![](Imagenes/39.png)
+
+   Last_salary_month
+ > [!NOTE] 
+ > ![](Imagenes/40.png)
+
+   Number_dependents
+ > [!NOTE] 
+ > ![](Imagenes/41.png)
+
+   Debt_ratio
+ > [!NOTE] 
+ > ![](Imagenes/42.png)
+
+   Using_lines_not_secured_personal_asset
+ > [!NOTE] 
+ > ![](Imagenes/43.png)
+
+  more_90_days_overdue
+ > [!NOTE] 
+ > ![](Imagenes/42.png)
+
+  Total_loan_type
+  > [!NOTE] 
+  > ![](Imagenes/43.png)
