@@ -1094,102 +1094,317 @@ Se analizan las variables que podrian ayudarnos a definir como es un cliente mal
 
    Age
  > [!NOTE] 
- > ![27](https://github.com/user-attachments/assets/1f285cf1-96a6-4c1a-b801-2fc52ca9b0af)
+ > ![Captura de pantalla 2024-07-26 174938](https://github.com/user-attachments/assets/ed01baf3-8a58-419b-bc43-d53a255d165e)
 
    Last_salary_month
  > [!NOTE] 
- >![28](https://github.com/user-attachments/assets/ade76e63-4324-4486-8c8b-3486a4c0fa3e)
+ >![Captura de pantalla 2024-07-26 174956](https://github.com/user-attachments/assets/1622c21a-ca74-4c14-bcef-180d51ffc4bb)
 
    Number_dependents
  > [!NOTE] 
- > ![29](https://github.com/user-attachments/assets/94685706-7e1c-4c33-9ace-104ce6c7d094)
+ > ![Captura de pantalla 2024-07-26 175010](https://github.com/user-attachments/assets/61aed98b-957c-4556-8ba7-2c48831f08d9)
 
    Debt_ratio
  > [!NOTE] 
- >![30](https://github.com/user-attachments/assets/c76804ee-e332-4913-8463-5dc496db4868)
+ >![Captura de pantalla 2024-07-26 175030](https://github.com/user-attachments/assets/beefac87-32d7-47ee-a8d3-26cbf69b7aa4)
 
    Using_lines_not_secured_personal_asset
  > [!NOTE] 
- > ![31](https://github.com/user-attachments/assets/179899f6-3fe3-443b-80a1-7166576988a7)
+ > ![Captura de pantalla 2024-07-26 175049](https://github.com/user-attachments/assets/70fb3835-6086-45b3-a01b-bafe4dfb3dd5)
 
   number_times_delayed_payment_loan_30_59_days
  > [!NOTE] 
- > ![32](https://github.com/user-attachments/assets/85fed803-9088-4dee-b967-99b762a8be57)
+ > ![Captura de pantalla 2024-07-26 175339](https://github.com/user-attachments/assets/2d2992a7-9c57-4589-a469-dc8a8e6ae63d)
 
  Consulta:
 
    ~~~
-  #CALCULAR LOS CUARTILES DE MALOS PAGADORES POR VARIABLE
-  WITH base_data AS (
-      SELECT 
-          age,
-          default_flag
-      FROM `riesgo-relativo-p3.Data_Set.Data_Set_Completo`
-  ),
-  ---Calcular los cuartiles dependiendo la edad.
-  quartiles AS (
-      SELECT 
-          age,
-          default_flag,
-          NTILE(4) OVER (ORDER BY age) AS age_quartile
-      FROM base_data ---datos de donde provienen las variables
-  ),
-  -- Calcula el número total de malos pagadores 
-  quartile_risk AS (
-      SELECT 
-          age_quartile,
-          COUNT(*) AS total_count,
-          SUM(default_flag) AS total_bad_payers,
-      FROM quartiles
-      GROUP BY age_quartile
-  ),
-  ---rango de edad (mínimo y máximo) para cada cuartil.
-  quartile_ranges AS (
-      SELECT
-          age_quartile,
-          MIN(age) AS min_age,
-          MAX(age) AS max_age
-      FROM quartiles
-      GROUP BY age_quartile
-  )
-  SELECT 
-      q.age_quartile,
-      q.total_count,
-      q.total_bad_payers,
-      r.min_age,
-      r.max_age
-  FROM quartile_risk q
-  JOIN quartile_ranges r
-  ON q.age_quartile = r.age_quartile
-  ORDER BY age_quartile ASC;
+ #CALCULAR LOS CUARTILES DE MALOS PAGADORES POR VARIABLE
+WITH base_data AS (
+    SELECT 
+        age,
+        default_flag
+    FROM `riesgo-relativo-p3.Data_Set.Data_Set_Completo`
+),
+---Calcular los cuartiles dependiendo la edad.
+quartiles AS (
+    SELECT 
+        age,
+        default_flag,
+        NTILE(4) OVER (ORDER BY age) AS age_quartile
+    FROM base_data ---datos de donde provienen las variables
+),
+-- Calcula el número total de malos pagadores 
+quartile_risk AS (
+    SELECT 
+        age_quartile,
+        COUNT(*) AS total_count,
+        SUM(default_flag) AS total_bad_payers,
+    FROM quartiles
+    GROUP BY age_quartile
+),
+---rango de edad (mínimo y máximo) para cada cuartil.
+quartile_ranges AS (
+    SELECT
+        age_quartile,
+        MIN(age) AS min_age,
+        MAX(age) AS max_age
+    FROM quartiles
+    GROUP BY age_quartile
+)
+SELECT 
+    q.age_quartile,
+    q.total_count,
+    q.total_bad_payers,
+    r.min_age,
+    r.max_age
+FROM quartile_risk q
+JOIN quartile_ranges r
+ON q.age_quartile = r.age_quartile
+ORDER BY age_quartile ASC;
+
+#CALCULAR LOS CUARTILES DE MALOS PAGADORES LAST_MONTH
+WITH base_data AS (
+    SELECT 
+        last_month_salary,
+        default_flag
+    FROM `riesgo-relativo-p3.Data_Set.Data_Set_Completo`
+),
+---Calcular los cuartiles dependiendo la edad.
+quartiles AS (
+    SELECT 
+        last_month_salary,
+        default_flag,
+        NTILE(4) OVER (ORDER BY last_month_salary) AS last_month_salary_quartile
+    FROM base_data ---datos de donde provienen las variables
+),
+-- Calcula el número total de malos pagadores 
+quartile_risk AS (
+    SELECT 
+        last_month_salary_quartile,
+        COUNT(*) AS total_count,
+        SUM(default_flag) AS total_bad_payers,
+    FROM quartiles
+    GROUP BY last_month_salary_quartile
+),
+---rango de edad (mínimo y máximo) para cada cuartil.
+quartile_ranges AS (
+    SELECT
+        last_month_salary_quartile,
+        MIN(last_month_salary) AS min_last_month_salary,
+        MAX(last_month_salary) AS max_last_month_salary
+    FROM quartiles
+    GROUP BY last_month_salary_quartile
+)
+SELECT 
+    q.last_month_salary_quartile,
+    q.total_count,
+    q.total_bad_payers,
+    r.min_last_month_salary,
+    r.max_last_month_salary
+FROM quartile_risk q
+JOIN quartile_ranges r
+ON q.last_month_salary_quartile = r.last_month_salary_quartile
+ORDER BY last_month_salary_quartile ASC;
+
+#CALCULAR LOS CUARTILES DE MALOS PAGADORES NUMBER_DEPENDENTS
+WITH base_data AS (
+    SELECT 
+        number_dependents,
+        default_flag
+    FROM `riesgo-relativo-p3.Data_Set.Data_Set_Completo`
+),
+---Calcular los cuartiles dependiendo la edad.
+quartiles AS (
+    SELECT 
+        number_dependents,
+        default_flag,
+        NTILE(4) OVER (ORDER BY number_dependents) AS number_dependents_quartile
+    FROM base_data ---datos de donde provienen las variables
+),
+-- Calcula el número total de malos pagadores 
+quartile_risk AS (
+    SELECT 
+        number_dependents_quartile,
+        COUNT(*) AS total_count,
+        SUM(default_flag) AS total_bad_payers,
+    FROM quartiles
+    GROUP BY number_dependents_quartile
+),
+---rango de edad (mínimo y máximo) para cada cuartil.
+quartile_ranges AS (
+    SELECT
+        number_dependents_quartile,
+        MIN(number_dependents) AS min_number_dependents,
+        MAX(number_dependents) AS max_number_dependents
+    FROM quartiles
+    GROUP BY number_dependents_quartile
+)
+SELECT 
+    q.number_dependents_quartile,
+    q.total_count,
+    q.total_bad_payers,
+    r.min_number_dependents,
+    r.max_number_dependents
+FROM quartile_risk q
+JOIN quartile_ranges r
+ON q.number_dependents_quartile = r.number_dependents_quartile
+ORDER BY number_dependents_quartile ASC;
+
+#CALCULAR LOS CUARTILES DE MALOS PAGADORES DEBT_RATIO
+WITH base_data AS (
+    SELECT 
+        debt_ratio,
+        default_flag
+    FROM `riesgo-relativo-p3.Data_Set.Data_Set_Completo`
+),
+---Calcular los cuartiles dependiendo la edad.
+quartiles AS (
+    SELECT 
+        debt_ratio,
+        default_flag,
+        NTILE(4) OVER (ORDER BY debt_ratio) AS debt_ratio_quartile
+    FROM base_data ---datos de donde provienen las variables
+),
+-- Calcula el número total de malos pagadores 
+quartile_risk AS (
+    SELECT 
+        debt_ratio_quartile,
+        COUNT(*) AS total_count,
+        SUM(default_flag) AS total_bad_payers,
+    FROM quartiles
+    GROUP BY debt_ratio_quartile
+),
+---rango de edad (mínimo y máximo) para cada cuartil.
+quartile_ranges AS (
+    SELECT
+        debt_ratio_quartile,
+        MIN(debt_ratio) AS min_debt_ratio,
+        MAX(debt_ratio) AS max_debt_ratio
+    FROM quartiles
+    GROUP BY debt_ratio_quartile
+)
+SELECT 
+    q.debt_ratio_quartile,
+    q.total_count,
+    q.total_bad_payers,
+    r.min_debt_ratio,
+    r.max_debt_ratio
+FROM quartile_risk q
+JOIN quartile_ranges r
+ON q.debt_ratio_quartile = r.debt_ratio_quartile
+ORDER BY debt_ratio_quartile ASC;
+
+#CALCULAR LOS CUARTILES DE MALOS PAGADORES using_lines_not_secured_personal_assets
+WITH base_data AS (
+    SELECT 
+        using_lines_not_secured_personal_assets,
+        default_flag
+    FROM `riesgo-relativo-p3.Data_Set.Data_Set_Completo`
+),
+---Calcular los cuartiles dependiendo la edad.
+quartiles AS (
+    SELECT 
+        using_lines_not_secured_personal_assets,
+        default_flag,
+        NTILE(4) OVER (ORDER BY using_lines_not_secured_personal_assets) AS using_lines_not_secured_personal_assets_quartile
+    FROM base_data ---datos de donde provienen las variables
+),
+-- Calcula el número total de malos pagadores 
+quartile_risk AS (
+    SELECT 
+        using_lines_not_secured_personal_assets_quartile,
+        COUNT(*) AS total_count,
+        SUM(default_flag) AS total_bad_payers,
+    FROM quartiles
+    GROUP BY using_lines_not_secured_personal_assets_quartile
+),
+---rango de edad (mínimo y máximo) para cada cuartil.
+quartile_ranges AS (
+    SELECT
+        using_lines_not_secured_personal_assets_quartile,
+        MIN(using_lines_not_secured_personal_assets) AS min_using_lines_not_secured_personal_assets,
+        MAX(using_lines_not_secured_personal_assets) AS max_using_lines_not_secured_personal_assets
+    FROM quartiles
+    GROUP BY using_lines_not_secured_personal_assets_quartile
+)
+SELECT 
+    q.using_lines_not_secured_personal_assets_quartile,
+    q.total_count,
+    q.total_bad_payers,
+    r.min_using_lines_not_secured_personal_assets,
+    r.max_using_lines_not_secured_personal_assets
+FROM quartile_risk q
+JOIN quartile_ranges r
+ON q.using_lines_not_secured_personal_assets_quartile = r.using_lines_not_secured_personal_assets_quartile
+ORDER BY using_lines_not_secured_personal_assets_quartile ASC;
+
+#CALCULAR LOS CUARTILES DE MALOS PAGADORES delay_30_59_90
+-- Calcular los cuartiles de malos pagadores delay_30_59_90
+WITH base_data AS (
+    SELECT 
+        delay_30_59_90,
+        default_flag
+    FROM `riesgo-relativo-p3.Data_Set.Data_Set_Completo`
+    WHERE default_flag = 1
+),
+-- Calcular los cuartiles dependiendo del delay_30_59_90
+quartiles AS (
+    SELECT 
+        delay_30_59_90,
+        default_flag,
+        NTILE(4) OVER (ORDER BY delay_30_59_90) AS delay_30_59_90_quartile
+    FROM base_data
+),
+-- Calcula el número total de malos pagadores y el total de registros para cada cuartil
+quartile_risk AS (
+    SELECT 
+        delay_30_59_90_quartile,
+        COUNT(*) AS total_count,
+        SUM(default_flag) AS total_bad_payers
+    FROM quartiles
+    GROUP BY delay_30_59_90_quartile
+),
+-- Rango de delay_30_59_90 (mínimo y máximo) para cada cuartil
+quartile_ranges AS (
+    SELECT
+        delay_30_59_90_quartile,
+        MIN(delay_30_59_90) AS min_delay_30_59_90,
+        MAX(delay_30_59_90) AS max_delay_30_59_90
+    FROM quartiles
+    GROUP BY delay_30_59_90_quartile
+)
+SELECT 
+    q.delay_30_59_90_quartile,
+    q.total_count,
+    q.total_bad_payers,
+    r.min_delay_30_59_90,
+    r.max_delay_30_59_90
+FROM quartile_risk q
+JOIN quartile_ranges r
+ON q.delay_30_59_90_quartile = r.delay_30_59_90_quartile
+ORDER BY q.delay_30_59_90_quartile ASC;
    ~~~
 
 
 4.- Calcular la correlaciòn entre variables nùmericas continuas.
 
- Last_month_salary / age
  > [!NOTE] 
- >![34](https://github.com/user-attachments/assets/335fd20e-55dd-4fa6-b1b7-01ea346ee655)
+ >![Captura de pantalla 2024-07-26 180718](https://github.com/user-attachments/assets/3852f5d4-ca38-4e3a-9975-8a3cefdc1480)
 
-  Interpretaciòn: El coeficiente de correlación es 0.03142, lo que sugiere una relación muy débil y positiva entre la edad y el costo mensual    del salario. Esto significa que, en general, a medida que aumenta la edad, el costo mensual del salario tiende a aumentar ligeramente, pero    la relación no es fuerte. 
+ Last_month_salary / age
+  Interpretaciòn: Esto sugiere que hay una relación débilmente positiva entre "age" y "last_month_salary". Es decir, a medida que una de estas variables aumenta, la otra también tiende a aumentar        
+  ligeramente.
 
  Debt_ratio / age
- > [!NOTE] 
- >![35](https://github.com/user-attachments/assets/813ed8f5-43f2-44de-95b0-c8af7a12f70b)
-
-  Interpretaciòn: El coeficiente de correlación es 0.0205, lo que sugiere una relación muy débil y positiva entre la edad y el ratio de deuda.   Esto significa que, en general, a medida que aumenta la edad, el ratio de deuda tiende a aumentar ligeramente, pero la relación no es fuerte.
+  Interpretaciòn: Esto indica que prácticamente no hay una relación lineal entre "age" y "debt_ratio". Cambios en "age" no tienen un impacto significativo en "debt_ratio".
 
  Debt_ratio / last_month_salary
- > [!NOTE] 
- > ![36](https://github.com/user-attachments/assets/95c82983-71f4-416f-a0e1-dde9f824b5e8)
-
-  Interpretaciòn: El coeficiente de correlación es -0.0059, lo que sugiere una relación muy débil y negativa entre el ratio de deuda y el        ingreso mensual. Esto significa que, en general, a medida que aumenta el ratio de deuda, el ingreso mensual tiende a disminuir ligeramente,    pero la relación no es fuerte.
+  Interpretaciòn: Esta correlación negativa débil sugiere que hay una tendencia muy leve de que cuando "debt_ratio" aumenta, "last_month_salary" disminuye, pero la relación es casi inexistente.
 
   Debt_ratio / Using_lines_not_secured_personal_asset
- > [!NOTE] 
- >![37](https://github.com/user-attachments/assets/6a268257-1496-4ea0-a3ac-86995a81dc1a)
-
-  Interpretaciòn: El coeficiente de correlación es 0.015, lo que sugiere una relación muy débil y positiva entre el ratio de deuda y el uso de   credito en lineas no aseguradas. Esto significa que, en general, a medida que aumenta el ratio de deuda, el uso de credito en lineas no asegurada tiende a aumentar ligeramente, pero la relación no es fuerte.
+  Interpretaciòn: Esto indica que hay una relación extremadamente débilmente positiva entre "debt_ratio" y "using_lines_not_secured_personal_assets". Es decir, cuando una de estas variables aumenta, la  
+  otra tiende a aumentar ligeramente, pero la relación es muy débil.
 
  Consulta: 
   ~~~
@@ -1209,28 +1424,72 @@ Se analizan las variables para determinar el numero de veces que corre el riesgo
   Age
  
  > [!NOTE] 
- > ![](Imagenes/39.png)
+ >![Captura de pantalla 2024-07-26 183433](https://github.com/user-attachments/assets/e8a970d7-29e4-479d-8ef1-106f6b587faa)
+
+ Interpretación: 
+ + Mayor riesgo relativo (30-46 años): Los usuarios en el rango de edad de 30 a 46 años tienen el mayor riesgo relativo, lo que sugiere que esta cohorte es más propensa a incumplir sus pagos.
+ + Menor riesgo relativo (59-96 años): Los usuarios en el rango de edad de 59 a 96 años tienen el menor riesgo relativo, indicando que este grupo es el más confiable en términos de pago.
+ + Tendencias de edad: Hay una tendencia general a que el riesgo relativo disminuya con la edad.
 
    Last_salary_month
  > [!NOTE] 
- > ![](Imagenes/40.png)
+ >![Captura de pantalla 2024-07-26 183548](https://github.com/user-attachments/assets/cc75eadb-3ee8-47b3-b30d-95bfaf30a1db)
+
+  Interpretación: 
+ + Mayor riesgo relativo: Los usuarios en el rango de salario más bajo tienen el mayor riesgo relativo, lo que sugiere que entre son 4 veces más propensos a incumplir sus pagos.
+ + Menor riesgo relativo: Los usuarios en el rango de salarios más elevados tienen el menor riesgo relativo, indicando que este grupo es el más confiable en términos de pago pues solo tiene un 37% de   
+   posibilidades de incumplir en sus pagos.
+ + Tendencias Hay una tendencia general a que el riesgo relativo disminuya conforme aumentan los ingresos mensuales del cliente.
 
    Number_dependents
  > [!NOTE] 
- > ![](Imagenes/41.png)
+ >![Captura de pantalla 2024-07-26 183636](https://github.com/user-attachments/assets/78bbf668-3897-4e92-975b-d72408386e50)
 
+ Interpretación: 
+ + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 3.46 veces màs probabilidades de incumplier en sus pagos.
+ + Menor riesgo relativo: Los usuarios de los cuartiles 1 y 2  indican que no hay riesgo de que ocurra el evento en estos cuartiles, posiblemente porque no hay dependientes en estos grupos.
+ + Tendencias Hay una tendencia general a que el riesgo relativo aumente conforme los dependientes.
+   
    Debt_ratio
  > [!NOTE] 
- > ![](Imagenes/42.png)
+ ![Captura de pantalla 2024-07-26 183722](https://github.com/user-attachments/assets/82b60898-0388-4d29-8eb3-cfa383a015f2)
+
+ Interpretación: 
+ + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 3.46 veces màs probabilidades de incumplier en sus pagos.
+ + Menor riesgo relativo: Los usuarios de los cuartiles 1 y 2  indican que no hay riesgo de que ocurra el evento en estos cuartiles, posiblemente porque no hay dependientes en estos grupos.
+ + Tendencias Hay una tendencia general a que el riesgo relativo aumente conforme los dependientes.
 
    Using_lines_not_secured_personal_asset
  > [!NOTE] 
- > ![](Imagenes/43.png)
+ >![Captura de pantalla 2024-07-26 183813](https://github.com/user-attachments/assets/7e65a9bd-cf2d-4457-b011-650eb0862d12)
 
-  more_90_days_overdue
+Interpretación: 
+ + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 3.46 veces màs probabilidades de incumplier en sus pagos.
+ + Menor riesgo relativo: Los usuarios de los cuartiles 1 y 2  indican que no hay riesgo de que ocurra el evento en estos cuartiles, posiblemente porque no hay dependientes en estos grupos.
+ + Tendencias Hay una tendencia general a que el riesgo relativo aumente conforme los dependientes.
+
+  delay_30_59_90
  > [!NOTE] 
- > ![](Imagenes/42.png)
+ > ![Captura de pantalla 2024-07-26 183945](https://github.com/user-attachments/assets/dcff22e9-6f23-492a-9fd3-0c31f79fcf43)
 
-  Total_loan_type
-  > [!NOTE] 
-  > ![](Imagenes/43.png)
+Interpretación: 
+ + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 3.46 veces màs probabilidades de incumplier en sus pagos.
+ + Menor riesgo relativo: Los usuarios de los cuartiles 1 y 2  indican que no hay riesgo de que ocurra el evento en estos cuartiles, posiblemente porque no hay dependientes en estos grupos.
+ + Tendencias Hay una tendencia general a que el riesgo relativo aumente conforme los dependientes.
+
+## **Hipótesis**
+
+Para la validación de hipótesis en el proceso de evaluación del riesgo relativo, se analizarán distintas variables, como el historial de pagos, la deuda total y los ingresos, entre otros.
+El objetivo es determinar cómo estas variables influyen en el riesgo de incumplimiento. Este análisis permitirá clasificar a los clientes en diferentes categorías de riesgo.
+
+ + *Los más jóvenes tienen un mayor riesgo de impago:*  Los individuos más jóvenes (Generacion Z- Millenials) tienden a tener balances más        altos y límites de crédito más bajos, lo que puede indicar un  mayor riesgo de impago.
+   
+ + *Las personas con más cantidad de préstamos activos tienen mayor riesgo de ser malos pagadores.* Si se observa que un mayor número de          prestamos activos está asociado con un mayor número de pagos incumplidos en comparación con los pagos cumplidos.
+   
+ + *Las personas que han retrasado sus pagos por más de 90 días tienen mayor riesgo de ser malos pagadores.* as personas con retrasos en los      pagos tienen un mayor riesgo de ser malos pagadores.
+   
+ + *Existe una diferencia significativa en el riesgo de ser mal pagador entre los diferentes cuartiles de salario del último mes:* Las            personas con salarios más bajos (primer cuartil) tienen un riesgo mucho mayor de ser mal pagadores en comparación con las personas con        salarios más altos (cuarto cuartil).
+   
+ + *Existe una diferencia significativa en el riesgo de ser mal pagador entre los diferentes cuartiles del número de dependientes* Las           personas con 0 dependientes en el primer cuartil y las personas con 1 a 13 dependientes en el cuarto cuartil tienen un riesgo mayor de ser    mal pagadores en comparación con aquellos en los otros cuartiles.
+   
+ + *No hay diferencia significativa en el riesgo de ser mal pagador entre los diferentes cuartiles del ratio de deuda.* Los individuos en el     primer y segundo cuartil (con ratios de deuda más bajos) tienen un riesgo menor de ser mal pagadores en comparación con aquellos en el        tercer y cuarto cuartil (con ratios de deuda más altos).
