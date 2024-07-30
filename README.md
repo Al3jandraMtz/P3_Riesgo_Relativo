@@ -368,7 +368,38 @@ El objetivo es determinar cómo estas variables influyen en el riesgo de incumpl
  + *Las personas que han retrasado sus pagos por más de 90 días tienen mayor riesgo de ser malos pagadores.* las personas con retrasos en los pagos tienen un mayor riesgo de ser malos pagadores.
    
  + *Existe una diferencia significativa en el riesgo de ser mal pagador entre los diferentes cuartiles de salario del último mes:* Las personas con salarios más bajos (primer cuartil) tienen un riesgo mucho mayor de ser mal pagadores en comparación con las personas con salarios más altos (cuarto cuartil).
-   
+ 
  + *Existe una diferencia significativa en el riesgo de ser mal pagador entre los diferentes cuartiles del número de dependientes* Las personas con 0 dependientes en el primer cuartil y las personas con 1 a 13 dependientes en el cuarto cuartil tienen un riesgo mayor de ser    mal pagadores en comparación con aquellos en los otros cuartiles.
    
  + *No hay diferencia significativa en el riesgo de ser mal pagador entre los diferentes cuartiles del ratio de deuda.* Los individuos en el     primer y segundo cuartil (con ratios de deuda más bajos) tienen un riesgo menor de ser mal pagadores en comparación con aquellos en el tercer y cuarto cuartil (con ratios de deuda más altos).
+
+ ## **Score de Riesgo**
+
+ 1.- Creación de variables Dummys
+ La regresión logística asigna un peso (coeficiente) a cada característica (variable dummy y otras variables). Estos coeficientes indican la importancia de cada característica para predecir la probabilidad de incumplimiento. (0 u 1)
+
+ > [!NOTE] 
+ >![Captura de pantalla 2024-07-29 202048](https://github.com/user-attachments/assets/f02134f3-160a-4836-839b-9bf735aac6a6)
+  
+2.- Calculo de Score Riesgo
+
+El modelo de regresión logística calcula una probabilidad de incumplimiento para cada registro. Esta probabilidad se convierte en un resultado binario utilizando un umbral (generalmente 0.5). Si la probabilidad es mayor que el umbral, el resultado es 1 (incumplimiento), de lo contrario, es 0 (no incumplimiento).
+
+> [!NOTE] 
+>![Captura de pantalla 2024-07-29 203458](https://github.com/user-attachments/assets/82e5dcd9-c849-4bc7-b531-03304a7947e5)
+
+3.- Matriz de confusión
+
+La matriz de confusión te permite evaluar el rendimiento del modelo comparando las predicciones con los valores reales de default_flag.
+
+> [!NOTE] 
+>![Captura de pantalla 2024-07-29 203909](https://github.com/user-attachments/assets/d32a8a2c-f9aa-42ca-9093-bca8c1aab933)
+
+4.- Metricas de presicion: Resultados
+
+> [!NOTE] 
+>![Captura de pantalla 2024-07-29 204403](https://github.com/user-attachments/assets/ac1e5d31-52c4-41c2-819c-3f5002a43ed9)
+
+ + Precisión (0.98): Indica que la mayoría de las predicciones positivas son correctas. El modelo tiene un buen rendimiento en identificar casos de incumplimiento.
+ + Recall (1.00): El modelo está detectando todos los casos de incumplimiento, sin perder ninguno. Esto es muy positivo, pero puede indicar que el umbral de clasificación podría estar muy ajustado a detectar todos los positivos.
+ + Exactitud (0.98): Indica que la proporción total de predicciones correctas es alta. Sin embargo, dado que no hay verdaderos negativos (TN = 0), esto podría ser un indicio de que el modelo está muy sesgado hacia la predicción positiva.
