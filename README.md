@@ -226,26 +226,25 @@ Outliers:
 1.- Aplicar medidas de tendencia central
 
  > [!NOTE]
- >![24](https://github.com/user-attachments/assets/534c7a2c-8b25-4e21-a076-56e0629c361e)
+ >![Captura de pantalla 2024-07-30 173710](https://github.com/user-attachments/assets/b394862f-705b-4060-bc82-3289b529f454)
 
 2.- Visualizar la distribuiciòn 
 
  > [!NOTE]
- >![25](https://github.com/user-attachments/assets/437361bb-1423-4b31-aa0b-4d95db9e4748)
+ >![Captura de pantalla 2024-07-30 174952](https://github.com/user-attachments/assets/27517b9b-73b7-4f1a-92f0-01147c3e75aa)
 
 Interpretaciones:
 
- Gráfica de “Others_loan_type”:
- 
-   +Baby Boomers: Tienen el valor más bajo en esta categoría.
-   + Generación X: Un poco más alto que los Baby Boomers, pero aún bajo.
-   + Generación Z: Similar a la Generación X.
-   + Millennials: Tienen el valor más alto en esta categoría, aunque sigue siendo relativamente bajo.
- Gráfica de “Real_estate_loan_type”:
-   + Baby Boomers: Tienen un valor moderado.
-   + Generación X: Similar a los Baby Boomers.
-   + Generación Z: Un poco más alto que las generaciones anteriores.
-   + Millennials: Tienen el valor más alto, superando los 20.
+Gráfica Preferencia en usos de crédito:
+ + La gráfica muestra que a medida que se incrementa el uso de líneas de crédito no aseguradas contra activos personales, el ratio de deuda tiende a aumentar. Sin embargo, hay una variabilidad significativa, especialmente en los niveles más altos de uso de crédito no asegurado.
+
+ Gráfica de Uso de líneas de credito no aseguradas:
+ + Aunque la mayor parte del uso de líneas de crédito no aseguradas se concentra en los individuos de 50 a 60 años, hay un número significativo de personas en los grupos de edad más jóvenes que también 
+   utilizan este tipo de crédito, aunque en montos menores.
++ La disminución en el uso de crédito en las edades avanzadas puede estar relacionada con factores como la jubilación y una disminución en las necesidades de crédito o capacidad de endeudamiento.
+
+  Gráfica de Uso de líneas de crédito aseguradas por patrimonio:
+   + Muestra que el uso de líneas de crédito aseguradas tiene ratios de deuda generalmente bajos, con algunas excepciones notables, y que la edad no varía significativamente a lo largo de los diferentes rangos de patrimonio. Esto contrasta con el uso de crédito no asegurado, que presenta una mayor variabilidad en los ratios de deuda y está más influenciado por la edad.
      
  Observaciones generales: los Millennials parecen tener una mayor participación en ambos tipos de préstamos, especialmente en los préstamos inmobiliarios.
   
@@ -255,32 +254,32 @@ Se analizan las variables que podrian ayudarnos a definir como es un cliente mal
 
    Age
  > [!NOTE] 
- > ![Captura de pantalla 2024-07-26 174938](https://github.com/user-attachments/assets/ed01baf3-8a58-419b-bc43-d53a255d165e)
+ > ![Captura de pantalla 2024-07-30 183322](https://github.com/user-attachments/assets/dbb608f2-64ef-43a0-85a6-e617410c9af3)
 
    Last_salary_month
  > [!NOTE] 
- >![Captura de pantalla 2024-07-26 174956](https://github.com/user-attachments/assets/1622c21a-ca74-4c14-bcef-180d51ffc4bb)
+ >![Captura de pantalla 2024-07-30 183334](https://github.com/user-attachments/assets/defbbdb0-89e6-4de0-a17e-411214754571)
 
    Number_dependents
  > [!NOTE] 
- > ![Captura de pantalla 2024-07-26 175010](https://github.com/user-attachments/assets/61aed98b-957c-4556-8ba7-2c48831f08d9)
+ > ![Captura de pantalla 2024-07-30 183345](https://github.com/user-attachments/assets/d970e6b6-799f-48ba-ab1a-abbe3cad660c)
 
    Debt_ratio
  > [!NOTE] 
- >![Captura de pantalla 2024-07-26 175030](https://github.com/user-attachments/assets/beefac87-32d7-47ee-a8d3-26cbf69b7aa4)
+ >![Captura de pantalla 2024-07-30 183820](https://github.com/user-attachments/assets/cb81b189-7c5a-4e1a-a339-6b55a16621df)
 
    Using_lines_not_secured_personal_asset
  > [!NOTE] 
- > ![Captura de pantalla 2024-07-26 175049](https://github.com/user-attachments/assets/70fb3835-6086-45b3-a01b-bafe4dfb3dd5)
+ >![Captura de pantalla 2024-07-30 183404](https://github.com/user-attachments/assets/c187c662-4b13-4c25-94b7-03d34f75fb95)
 
-  number_times_delayed_payment_loan_30_59_days
+  Delay_30-59-89
  > [!NOTE] 
  > ![Captura de pantalla 2024-07-26 175339](https://github.com/user-attachments/assets/2d2992a7-9c57-4589-a469-dc8a8e6ae63d)
 
 4.- Calcular la correlaciòn entre variables nùmericas continuas.
 
  > [!NOTE] 
- >![Captura de pantalla 2024-07-26 180718](https://github.com/user-attachments/assets/3852f5d4-ca38-4e3a-9975-8a3cefdc1480)
+ >![Captura de pantalla 2024-07-30 183947](https://github.com/user-attachments/assets/e67eb489-5f49-4a25-a145-9d23dae7b742)
 
  Last_month_salary / age
   Interpretaciòn: Esto sugiere que hay una relación débilmente positiva entre "age" y "last_month_salary". Es decir, a medida que una de estas variables aumenta, la otra también tiende a aumentar        
@@ -293,8 +292,8 @@ Se analizan las variables que podrian ayudarnos a definir como es un cliente mal
   Interpretaciòn: Esta correlación negativa débil sugiere que hay una tendencia muy leve de que cuando "debt_ratio" aumenta, "last_month_salary" disminuye, pero la relación es casi inexistente.
 
   Debt_ratio / Using_lines_not_secured_personal_asset
-  Interpretaciòn: Esto indica que hay una relación extremadamente débilmente positiva entre "debt_ratio" y "using_lines_not_secured_personal_assets". Es decir, cuando una de estas variables aumenta, la  
-  otra tiende a aumentar ligeramente, pero la relación es muy débil.
+  Interpretaciòn: Esto indica que hay una relación débilmente negativa entre "debt_ratio" y "using_lines_not_secured_personal_assets". Es decir, cuando una de estas variables aumenta, la  
+  otra tiende a no aumentar.
 
 5.- Calcular riesgo relativo
 
@@ -303,56 +302,47 @@ Se analizan las variables para determinar el numero de veces que corre el riesgo
   Age
  
  > [!NOTE] 
- >![Captura de pantalla 2024-07-26 183433](https://github.com/user-attachments/assets/e8a970d7-29e4-479d-8ef1-106f6b587faa)
+ >![Captura de pantalla 2024-07-30 185631](https://github.com/user-attachments/assets/b9c5bcd1-96b4-4dff-88b9-9ba8dc50f68a)
 
  Interpretación: 
- + Mayor riesgo relativo (30-46 años): Los usuarios en el rango de edad de 30 a 46 años tienen el mayor riesgo relativo, lo que sugiere que esta cohorte es más propensa a incumplir sus pagos.
- + Menor riesgo relativo (59-96 años): Los usuarios en el rango de edad de 59 a 96 años tienen el menor riesgo relativo, indicando que este grupo es el más confiable en términos de pago.
+ + Mayor riesgo relativo (20-51 años): Los usuarios en el rango de edad de 20 a 51 años tienen el mayor riesgo relativo, lo que sugiere que esta cohorte es más propensa a incumplir sus pagos.
+ + Menor riesgo relativo (51-96 años): Los usuarios en el rango de edad de 59 a 96 años tienen el menor riesgo relativo, indicando que este grupo es el más confiable en términos de pago.
  + Tendencias de edad: Hay una tendencia general a que el riesgo relativo disminuya con la edad.
 
    Last_salary_month
  > [!NOTE] 
- >![Captura de pantalla 2024-07-26 183548](https://github.com/user-attachments/assets/cc75eadb-3ee8-47b3-b30d-95bfaf30a1db)
+ >![Captura de pantalla 2024-07-30 185825](https://github.com/user-attachments/assets/eab20e45-9387-486d-a481-7ad393a90bbe)
 
   Interpretación: 
- + Mayor riesgo relativo: Los usuarios en el rango de salario más bajo tienen el mayor riesgo relativo, lo que sugiere que entre son 4 veces más propensos a incumplir sus pagos.
- + Menor riesgo relativo: Los usuarios en el rango de salarios más elevados tienen el menor riesgo relativo, indicando que este grupo es el más confiable en términos de pago pues solo tiene un 37% de   
+ + Mayor riesgo relativo: Los usuarios en el rango de salario más bajo tienen el mayor riesgo relativo, lo que sugiere que entre son 1.86 veces más propensos a incumplir sus pagos.
+ + Menor riesgo relativo: Los usuarios en el rango de salarios más elevados tienen el menor riesgo relativo, indicando que este grupo es el más confiable en términos de pago pues solo tiene un 30% de   
    posibilidades de incumplir en sus pagos.
  + Tendencias Hay una tendencia general a que el riesgo relativo disminuya conforme aumentan los ingresos mensuales del cliente.
 
    Number_dependents
  > [!NOTE] 
- >![Captura de pantalla 2024-07-26 183636](https://github.com/user-attachments/assets/78bbf668-3897-4e92-975b-d72408386e50)
+ >![Captura de pantalla 2024-07-30 190149](https://github.com/user-attachments/assets/22cff96d-79c9-4ee2-8908-3b8e274400c6)
 
  Interpretación: 
- + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 3.46 veces màs probabilidades de incumplier en sus pagos.
+ + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 5.68 veces màs probabilidades de incumplier en sus pagos.
  + Menor riesgo relativo: Los usuarios de los cuartiles 1 y 2  indican que no hay riesgo de que ocurra el evento en estos cuartiles, posiblemente porque no hay dependientes en estos grupos.
  + Tendencias Hay una tendencia general a que el riesgo relativo aumente conforme los dependientes.
    
    Debt_ratio
  > [!NOTE] 
- ![Captura de pantalla 2024-07-26 183722](https://github.com/user-attachments/assets/82b60898-0388-4d29-8eb3-cfa383a015f2)
+ >![Captura de pantalla 2024-07-30 190341](https://github.com/user-attachments/assets/1314d326-5a74-4867-b135-44638af8537c)
 
  Interpretación: 
- + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 3.46 veces màs probabilidades de incumplier en sus pagos.
- + Menor riesgo relativo: Los usuarios de los cuartiles 1 y 2  indican que no hay riesgo de que ocurra el evento en estos cuartiles, posiblemente porque no hay dependientes en estos grupos.
+ + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 1.84 veces màs probabilidades de incumplier en sus pagos.
+ + Menor riesgo relativo: Los usuarios de los cuartiles 1 y 3  indican que no hay riesgo de que ocurra el evento en estos cuartiles, posiblemente porque no hay dependientes en estos grupos.
  + Tendencias Hay una tendencia general a que el riesgo relativo aumente conforme los dependientes.
 
    Using_lines_not_secured_personal_asset
  > [!NOTE] 
- >![Captura de pantalla 2024-07-26 183813](https://github.com/user-attachments/assets/7e65a9bd-cf2d-4457-b011-650eb0862d12)
+ >![Captura de pantalla 2024-07-30 190513](https://github.com/user-attachments/assets/c565648a-70dc-413e-9253-a314b223bc5b)
 
 Interpretación: 
- + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 3.46 veces màs probabilidades de incumplier en sus pagos.
- + Menor riesgo relativo: Los usuarios de los cuartiles 1 y 2  indican que no hay riesgo de que ocurra el evento en estos cuartiles, posiblemente porque no hay dependientes en estos grupos.
- + Tendencias Hay una tendencia general a que el riesgo relativo aumente conforme los dependientes.
-
-  delay_30_59_90
- > [!NOTE] 
- > ![Captura de pantalla 2024-07-26 183945](https://github.com/user-attachments/assets/dcff22e9-6f23-492a-9fd3-0c31f79fcf43)
-
-Interpretación: 
- + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 3.46 veces màs probabilidades de incumplier en sus pagos.
+ + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 38.46 veces màs probabilidades de incumplier en sus pagos.
  + Menor riesgo relativo: Los usuarios de los cuartiles 1 y 2  indican que no hay riesgo de que ocurra el evento en estos cuartiles, posiblemente porque no hay dependientes en estos grupos.
  + Tendencias Hay una tendencia general a que el riesgo relativo aumente conforme los dependientes.
 
@@ -379,26 +369,26 @@ El objetivo es determinar cómo estas variables influyen en el riesgo de incumpl
  La regresión logística asigna un peso (coeficiente) a cada característica (variable dummy y otras variables). Estos coeficientes indican la importancia de cada característica para predecir la probabilidad de incumplimiento. (0 u 1)
 
  > [!NOTE] 
- >![Captura de pantalla 2024-07-29 202048](https://github.com/user-attachments/assets/f02134f3-160a-4836-839b-9bf735aac6a6)
+ >![Captura de pantalla 2024-07-30 192248](https://github.com/user-attachments/assets/2a017c20-d897-4498-a89a-a62229f8c031)
   
 2.- Calculo de Score Riesgo
 
 El modelo de regresión logística calcula una probabilidad de incumplimiento para cada registro. Esta probabilidad se convierte en un resultado binario utilizando un umbral (generalmente 0.5). Si la probabilidad es mayor que el umbral, el resultado es 1 (incumplimiento), de lo contrario, es 0 (no incumplimiento).
 
 > [!NOTE] 
->![Captura de pantalla 2024-07-29 203458](https://github.com/user-attachments/assets/82e5dcd9-c849-4bc7-b531-03304a7947e5)
+>![Captura de pantalla 2024-07-30 192451](https://github.com/user-attachments/assets/46185a3e-6bc1-417c-8803-88d4249437b8)
 
 3.- Matriz de confusión
 
 La matriz de confusión te permite evaluar el rendimiento del modelo comparando las predicciones con los valores reales de default_flag.
 
 > [!NOTE] 
->![Captura de pantalla 2024-07-29 203909](https://github.com/user-attachments/assets/d32a8a2c-f9aa-42ca-9093-bca8c1aab933)
+>![Captura de pantalla 2024-07-30 192538](https://github.com/user-attachments/assets/46874696-d82b-47c9-b193-724c17d2ca90)
 
 4.- Metricas de presicion: Resultados
 
 > [!NOTE] 
->![Captura de pantalla 2024-07-29 204403](https://github.com/user-attachments/assets/ac1e5d31-52c4-41c2-819c-3f5002a43ed9)
+>![Captura de pantalla 2024-07-30 193040](https://github.com/user-attachments/assets/16016e46-9e04-4158-910a-f3dc32afd0e5)
 
  + Precisión (0.98): Indica que la mayoría de las predicciones positivas son correctas. El modelo tiene un buen rendimiento en identificar casos de incumplimiento.
  + Recall (1.00): El modelo está detectando todos los casos de incumplimiento, sin perder ninguno. Esto es muy positivo, pero puede indicar que el umbral de clasificación podría estar muy ajustado a detectar todos los positivos.
