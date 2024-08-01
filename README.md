@@ -226,12 +226,12 @@ Outliers:
 1.- Aplicar medidas de tendencia central
 
  > [!NOTE]
- >![Captura de pantalla 2024-07-30 173710](https://github.com/user-attachments/assets/b394862f-705b-4060-bc82-3289b529f454)
+ >![Captura de pantalla 2024-07-31 150452](https://github.com/user-attachments/assets/4b6fab1d-4148-4873-941f-af7b22c29cff)
 
 2.- Visualizar la distribuiciòn 
 
  > [!NOTE]
- >![Captura de pantalla 2024-07-30 174952](https://github.com/user-attachments/assets/27517b9b-73b7-4f1a-92f0-01147c3e75aa)
+ >![Captura de pantalla 2024-07-31 151810](https://github.com/user-attachments/assets/a21264ce-17bc-4ee5-aeec-ebe227ee2b2b)
 
 Interpretaciones:
 
@@ -239,14 +239,12 @@ Gráfica Preferencia en usos de crédito:
  + La gráfica muestra que a medida que se incrementa el uso de líneas de crédito no aseguradas contra activos personales, el ratio de deuda tiende a aumentar. Sin embargo, hay una variabilidad significativa, especialmente en los niveles más altos de uso de crédito no asegurado.
 
  Gráfica de Uso de líneas de credito no aseguradas:
- + Aunque la mayor parte del uso de líneas de crédito no aseguradas se concentra en los individuos de 50 a 60 años, hay un número significativo de personas en los grupos de edad más jóvenes que también 
-   utilizan este tipo de crédito, aunque en montos menores.
-+ La disminución en el uso de crédito en las edades avanzadas puede estar relacionada con factores como la jubilación y una disminución en las necesidades de crédito o capacidad de endeudamiento.
+ +  La gráfica muestra que los usuarios en sus 40s y principios de los 50s tienen los picos más altos en el uso de líneas de crédito no aseguradas. Después de los 50 años, el uso disminuye notablemente. Esto sugiere que las personas en la mediana edad son más propensas a utilizar líneas de crédito no aseguradas.
 
   Gráfica de Uso de líneas de crédito aseguradas por patrimonio:
-   + Muestra que el uso de líneas de crédito aseguradas tiene ratios de deuda generalmente bajos, con algunas excepciones notables, y que la edad no varía significativamente a lo largo de los diferentes rangos de patrimonio. Esto contrasta con el uso de crédito no asegurado, que presenta una mayor variabilidad en los ratios de deuda y está más influenciado por la edad.
+   + La gráfica indica que el uso de líneas de crédito aseguradas por patrimonio aumenta progresivamente desde los 20 años, alcanzando su punto máximo en los usuarios de 50-60 años. Después de esta edad, el uso disminuye gradualmente. Esto sugiere que las personas en su edad media y mayores tienen un mayor uso de líneas de crédito aseguradas por patrimonio.
      
- Observaciones generales: los Millennials parecen tener una mayor participación en ambos tipos de préstamos, especialmente en los préstamos inmobiliarios.
+ Observaciones generales: Los picos en el uso de crédito no asegurado ocurren a una edad ligeramente menor que los picos en el uso de crédito asegurado. Y las líneas de crédito aseguradas por patrimonio tienden a ser utilizadas por un rango de edad más amplio y tienen un uso máximo más alto comparado con las líneas de crédito no aseguradas.
   
 3.- Calcular cuartiles, deciles o percentiles de los grupos de malos pagadores.
 
@@ -254,46 +252,44 @@ Se analizan las variables que podrian ayudarnos a definir como es un cliente mal
 
    Age
  > [!NOTE] 
- > ![Captura de pantalla 2024-07-30 183322](https://github.com/user-attachments/assets/dbb608f2-64ef-43a0-85a6-e617410c9af3)
+ > ![Captura de pantalla 2024-07-31 152320](https://github.com/user-attachments/assets/453f1a3b-920b-4927-be67-36f095427df2)
 
    Last_salary_month
  > [!NOTE] 
- >![Captura de pantalla 2024-07-30 183334](https://github.com/user-attachments/assets/defbbdb0-89e6-4de0-a17e-411214754571)
+ >![Captura de pantalla 2024-07-31 152329](https://github.com/user-attachments/assets/6a286c0d-45ed-4ce9-a0cd-752e89e2035a)
 
    Number_dependents
  > [!NOTE] 
- > ![Captura de pantalla 2024-07-30 183345](https://github.com/user-attachments/assets/d970e6b6-799f-48ba-ab1a-abbe3cad660c)
+ >![Captura de pantalla 2024-07-31 152413](https://github.com/user-attachments/assets/29c7c030-a007-4d7b-929e-afaf4e5ae5db)
 
    Debt_ratio
  > [!NOTE] 
- >![Captura de pantalla 2024-07-30 183820](https://github.com/user-attachments/assets/cb81b189-7c5a-4e1a-a339-6b55a16621df)
+ >!![Captura de pantalla 2024-07-31 152438](https://github.com/user-attachments/assets/b88277d9-6c74-4066-b0b3-9f62e2dcc914)
 
    Using_lines_not_secured_personal_asset
  > [!NOTE] 
- >![Captura de pantalla 2024-07-30 183404](https://github.com/user-attachments/assets/c187c662-4b13-4c25-94b7-03d34f75fb95)
+ >![Captura de pantalla 2024-07-31 152507](https://github.com/user-attachments/assets/328f10be-8a85-4d59-8f29-bcf043de79c8)
 
   Delay_30-59-89
  > [!NOTE] 
- > ![Captura de pantalla 2024-07-26 175339](https://github.com/user-attachments/assets/2d2992a7-9c57-4589-a469-dc8a8e6ae63d)
+ >![Captura de pantalla 2024-07-31 152541](https://github.com/user-attachments/assets/921d8238-2b5b-4953-85fb-9a86857a6811)
 
 4.- Calcular la correlaciòn entre variables nùmericas continuas.
 
  > [!NOTE] 
- >![Captura de pantalla 2024-07-30 183947](https://github.com/user-attachments/assets/e67eb489-5f49-4a25-a145-9d23dae7b742)
+ >![Captura de pantalla 2024-07-31 152634](https://github.com/user-attachments/assets/729a35a1-5ac7-46a1-a57a-5814364fd07e)
 
  Last_month_salary / age
-  Interpretaciòn: Esto sugiere que hay una relación débilmente positiva entre "age" y "last_month_salary". Es decir, a medida que una de estas variables aumenta, la otra también tiende a aumentar        
-  ligeramente.
+  Interpretaciòn: Hay una correlación positiva muy baja entre la edad  y el salario del último mes. Esto indica que a medida que la edad aumenta, el salario del último mes tiende a aumentar ligeramente, aunque la relación es muy débil.
 
  Debt_ratio / age
-  Interpretaciòn: Esto indica que prácticamente no hay una relación lineal entre "age" y "debt_ratio". Cambios en "age" no tienen un impacto significativo en "debt_ratio".
+  Interpretaciòn: Hay una correlación positiva extremadamente baja entre la edad y el ratio de deuda. Esto sugiere que la edad tiene muy poca influencia en el ratio de deuda de una persona.
 
  Debt_ratio / last_month_salary
-  Interpretaciòn: Esta correlación negativa débil sugiere que hay una tendencia muy leve de que cuando "debt_ratio" aumenta, "last_month_salary" disminuye, pero la relación es casi inexistente.
+  Interpretaciòn: Hay una correlación negativa muy baja entre el ratio de deuda (debt_ratio) y el salario del último mes. Esto implica que, a medida que el ratio de deuda aumenta, el salario del último mes tiende a disminuir ligeramente, pero la relación es muy débil.
 
   Debt_ratio / Using_lines_not_secured_personal_asset
-  Interpretaciòn: Esto indica que hay una relación débilmente negativa entre "debt_ratio" y "using_lines_not_secured_personal_assets". Es decir, cuando una de estas variables aumenta, la  
-  otra tiende a no aumentar.
+  Interpretaciòn: Hay una correlación positiva extremadamente baja entre el ratio de deuda y el uso de líneas de crédito no aseguradas. Esto indica que el uso de líneas de crédito no aseguradas tiende a aumentar ligeramente con el aumento del ratio de deuda, pero la relación es prácticamente insignificante.
 
 5.- Calcular riesgo relativo
 
@@ -302,66 +298,68 @@ Se analizan las variables para determinar el numero de veces que corre el riesgo
   Age
  
  > [!NOTE] 
- >![Captura de pantalla 2024-07-30 185631](https://github.com/user-attachments/assets/b9c5bcd1-96b4-4dff-88b9-9ba8dc50f68a)
+ >![Captura de pantalla 2024-07-31 153706](https://github.com/user-attachments/assets/f3bfee0a-026f-4770-a92a-0be0baf02d72)
 
  Interpretación: 
  + Mayor riesgo relativo (20-51 años): Los usuarios en el rango de edad de 20 a 51 años tienen el mayor riesgo relativo, lo que sugiere que esta cohorte es más propensa a incumplir sus pagos.
- + Menor riesgo relativo (51-96 años): Los usuarios en el rango de edad de 59 a 96 años tienen el menor riesgo relativo, indicando que este grupo es el más confiable en términos de pago.
+ + Menor riesgo relativo (51-96 años): Los usuarios en el rango de edad de 52 a 96 años tienen el menor riesgo relativo, indicando que este grupo es el más confiable en términos de pago.
  + Tendencias de edad: Hay una tendencia general a que el riesgo relativo disminuya con la edad.
 
-   Last_salary_month
+Last_salary_month
+
  > [!NOTE] 
- >![Captura de pantalla 2024-07-30 185825](https://github.com/user-attachments/assets/eab20e45-9387-486d-a481-7ad393a90bbe)
+ >![Captura de pantalla 2024-07-31 153748](https://github.com/user-attachments/assets/63e646bd-0d7f-4b05-9d7d-66e6ff0a49c1)
 
   Interpretación: 
- + Mayor riesgo relativo: Los usuarios en el rango de salario más bajo tienen el mayor riesgo relativo, lo que sugiere que entre son 1.86 veces más propensos a incumplir sus pagos.
- + Menor riesgo relativo: Los usuarios en el rango de salarios más elevados tienen el menor riesgo relativo, indicando que este grupo es el más confiable en términos de pago pues solo tiene un 30% de   
-   posibilidades de incumplir en sus pagos.
+ + Mayor riesgo relativo: Los usuarios en el rango de salario más bajo tienen el mayor riesgo relativo, lo que sugiere que entre son 3.65 veces más propensos a incumplir sus pagos.
+ + Menor riesgo relativo: Los usuarios en el rango de salarios más elevados tienen el menor riesgo relativo, indicando que este grupo es el más confiable en términos de pago pues solo tiene un 39% de   
+posibilidades de incumplir en sus pagos.
  + Tendencias Hay una tendencia general a que el riesgo relativo disminuya conforme aumentan los ingresos mensuales del cliente.
 
-   Number_dependents
+Number_dependents
+
  > [!NOTE] 
- >![Captura de pantalla 2024-07-30 190149](https://github.com/user-attachments/assets/22cff96d-79c9-4ee2-8908-3b8e274400c6)
+ >![Captura de pantalla 2024-07-31 153846](https://github.com/user-attachments/assets/ba0678f7-db8e-4045-b735-a81f7af93551)
 
  Interpretación: 
  + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 5.68 veces màs probabilidades de incumplier en sus pagos.
  + Menor riesgo relativo: Los usuarios de los cuartiles 1 y 2  indican que no hay riesgo de que ocurra el evento en estos cuartiles, posiblemente porque no hay dependientes en estos grupos.
  + Tendencias Hay una tendencia general a que el riesgo relativo aumente conforme los dependientes.
    
-   Debt_ratio
+Debt_ratio
+
  > [!NOTE] 
- >![Captura de pantalla 2024-07-30 190341](https://github.com/user-attachments/assets/1314d326-5a74-4867-b135-44638af8537c)
+ >![Captura de pantalla 2024-07-31 153931](https://github.com/user-attachments/assets/05b0f95f-765e-4b0c-abfd-f762be96bb16)
 
  Interpretación: 
- + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 1.84 veces màs probabilidades de incumplier en sus pagos.
- + Menor riesgo relativo: Los usuarios de los cuartiles 1 y 3  indican que no hay riesgo de que ocurra el evento en estos cuartiles, posiblemente porque no hay dependientes en estos grupos.
- + Tendencias Hay una tendencia general a que el riesgo relativo aumente conforme los dependientes.
+ + Mayor riesgo relativo: Los usuarios del  tercer cuartil presentan el mayor riesgo relativo (1.41) y la tasa de malos pagadores más alta (2.25%). Este cuartil muestra un punto crítico donde el riesgo de incumplimiento es significativamente mayor.
+ + Menor riesgo relativo: Los usuarios del cuartil 1 tienen menor riesgo relativo (0.71) de ser malos pagadores, con una tasa de malos pagadores de 1.35%.
+ + Tendencias: A medida que el debt_ratio aumenta, tanto la tasa de malos pagadores como el riesgo relativo tienden a aumentar hasta el tercer cuartil. El cuarto cuartil, aunque tiene los ratios de deuda más altos, muestra un riesgo relativo menor (1.09) que el tercer cuartil, lo que sugiere que algunos de los deudores con ratios extremadamente altos pueden tener factores mitigantes no reflejados solo en el debt_ratio.
 
-   Using_lines_not_secured_personal_asset
+Using_lines_not_secured_personal_asset
+
  > [!NOTE] 
- >![Captura de pantalla 2024-07-30 190513](https://github.com/user-attachments/assets/c565648a-70dc-413e-9253-a314b223bc5b)
+ >![Captura de pantalla 2024-07-31 154416](https://github.com/user-attachments/assets/0578e5de-456c-439d-8166-38c0a81abae4)
 
 Interpretación: 
- + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 38.46 veces màs probabilidades de incumplier en sus pagos.
- + Menor riesgo relativo: Los usuarios de los cuartiles 1 y 2  indican que no hay riesgo de que ocurra el evento en estos cuartiles, posiblemente porque no hay dependientes en estos grupos.
- + Tendencias Hay una tendencia general a que el riesgo relativo aumente conforme los dependientes.
+ + Mayor riesgo relativo: Los usuarios del cuartil 4 tienen el mayor riesgo relativo (41.08) y la tasa más alta de malos pagadores (0.06559). El máximo uso de líneas de crédito no aseguradas en este cuartil es extremadamente alto (22,000), lo que sugiere un riesgo significativamente mayor de incumplimiento asociado con altos niveles de endeudamiento no asegura
+ + Menor riesgo relativo: Los usuarios de los cuartil 1 presentan el menor riesgo relativo (0.038) y una muy baja tasa de malos pagadores (0.00089). Es el cuartil con el uso mínimo de líneas de crédito no aseguradas, indicando que un bajo nivel de endeudamiento a través de líneas no aseguradas está asociado con un bajo riesgo de incumplimiento.
+ + Tendencias: Estos hallazgos sugieren que un mayor uso de líneas de crédito no aseguradas está fuertemente correlacionado con un aumento en el riesgo de incumplimiento. Esto podría indicar que políticas más estrictas en la concesión de crédito no asegurado o una evaluación más detallada del riesgo crediticio podrían ser necesarias para los individuos en los cuartiles superiores de uso.
 
 ## **Hipótesis**
 
 Para la validación de hipótesis en el proceso de evaluación del riesgo relativo, se analizarán distintas variables, como el historial de pagos, la deuda total y los ingresos, entre otros.
 El objetivo es determinar cómo estas variables influyen en el riesgo de incumplimiento. Este análisis permitirá clasificar a los clientes en diferentes categorías de riesgo.
 
- + *Los más jóvenes tienen un mayor riesgo de impago:*  Los individuos más jóvenes (Generacion Z- Millenials) tienden a tener balances más  altos y límites de crédito más bajos, lo que puede indicar un  mayor riesgo de impago.
+ + *Los más jóvenes tienen un mayor riesgo de impago:*  Validada: Los individuos más jóvenes (Generacion Z- Millenials) tienden a tener balances más  altos y límites de crédito más bajos, lo que puede indicar un  mayor riesgo de impago.
    
  + *Las personas con más cantidad de préstamos activos tienen mayor riesgo de ser malos pagadores.* Si se observa que un mayor número de  prestamos activos está asociado con un mayor número de pagos incumplidos en comparación con los pagos cumplidos.
    
  + *Las personas que han retrasado sus pagos por más de 90 días tienen mayor riesgo de ser malos pagadores.* las personas con retrasos en los pagos tienen un mayor riesgo de ser malos pagadores.
    
- + *Existe una diferencia significativa en el riesgo de ser mal pagador entre los diferentes cuartiles de salario del último mes:* Las personas con salarios más bajos (primer cuartil) tienen un riesgo mucho mayor de ser mal pagadores en comparación con las personas con salarios más altos (cuarto cuartil).
+ + *Existe una diferencia significativa en el riesgo de ser mal pagador entre los diferentes cuartiles de salario del último mes:* Las personas con salarios más bajos tienen un riesgo mucho mayor de ser mal pagadores en comparación con las personas con salarios más altos (cuarto cuartil).
  
- + *Existe una diferencia significativa en el riesgo de ser mal pagador entre los diferentes cuartiles del número de dependientes* Las personas con 0 dependientes en el primer cuartil y las personas con 1 a 13 dependientes en el cuarto cuartil tienen un riesgo mayor de ser    mal pagadores en comparación con aquellos en los otros cuartiles.
-   
- + *No hay diferencia significativa en el riesgo de ser mal pagador entre los diferentes cuartiles del ratio de deuda.* Los individuos en el     primer y segundo cuartil (con ratios de deuda más bajos) tienen un riesgo menor de ser mal pagadores en comparación con aquellos en el tercer y cuarto cuartil (con ratios de deuda más altos).
+ + *Existe una diferencia significativa en el riesgo de ser mal pagador entre los diferentes cuartiles del número de dependientes* Las personas con 0 dependientes en el primer cuartil y las personas con 1 a 13 dependientes en el cuarto cuartil tienen un riesgo mayor de ser mal pagadores en comparación con aquellos en los otros cuartiles.
 
  ## **Score de Riesgo**
 
