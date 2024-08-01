@@ -66,7 +66,7 @@ Valores fuera del alcance del análisis:
   + more_90_days_overdue, number_times_delayed_payment_loan_30_59_day: 0.98291
 
   > [!NOTE]
-  > ![2](https://github.com/user-attachments/assets/f095f852-5dcd-452f-ab82-d92813144db1)
+  >![2](https://github.com/user-attachments/assets/f095f852-5dcd-452f-ab82-d92813144db1)
 
   * Interpretación: Tiene una correlación muy similar con ambas variables de retraso en el pago
 
@@ -75,8 +75,8 @@ Desviación estándar:
   + number_times_delayed_payment_loan_30_59: 4.144020
   + number_times_delayed_payment_loan_60_89_day: 4.105514
 
-  > [!NOTE]
-  > ![3](https://github.com/user-attachments/assets/36e93ada-a92e-4c97-b08b-229da7848dbb)
+  >[!NOTE]
+  >![3](https://github.com/user-attachments/assets/36e93ada-a92e-4c97-b08b-229da7848dbb)
 
   * Interpretación: Las tres variables tienen desviaciones estándar similares, lo que sugiere que sus valores están dispersos en torno a sus medias de manera similar.
 
@@ -84,7 +84,7 @@ Desviación estándar:
 
 Outliers:
   > [!NOTE]
-  > ![15](https://github.com/user-attachments/assets/6ff9facf-27a8-455d-8916-41d601879ebd)
+  >![15](https://github.com/user-attachments/assets/6ff9facf-27a8-455d-8916-41d601879ebd)
 
    + Número de outliers en using_lines_not_secured_personal_assets: 177 ya que no contamos con información adicional, no se eliminan ni imputan estos datos.
      
@@ -194,6 +194,7 @@ Outliers:
   + number_dependents: 0
   Outliers:
   + age: 10 Outliders se determina eliminar las edades mayores a 96 años
+    
      > [!NOTE]
      > ![5](https://github.com/user-attachments/assets/0bf0e07c-4cd4-4e7c-827c-fa45f06afbaf)
 
@@ -203,7 +204,7 @@ Outliers:
      
    + number_dependents: 3,230 Outliers al no tener información clara sobre cual seria la cantidad limite de numero de dependientes por user_id se determina dejar los valores tal como estan.
      > [!NOTE]
-     > ![12](https://github.com/user-attachments/assets/f1c2509e-9f2b-4467-b3a3-9701e1986f05)
+     >![12](https://github.com/user-attachments/assets/f1c2509e-9f2b-4467-b3a3-9701e1986f05)
 
       Vista Outliders:
      > [!NOTE]
@@ -211,7 +212,7 @@ Outliers:
      
    + last_month_salary: 1170 Outliers  se llega a la decisión realizar la imputación de los datos mediante el reemplazo de los valores atípicos con el valor promedio de los dos segmentos (Sueldo bajo)          (Sueldo alto)
      > [!NOTE]
-     > ![10](https://github.com/user-attachments/assets/73302ffc-f545-4ce8-87a2-7553148c4a71)
+     >![10](https://github.com/user-attachments/assets/73302ffc-f545-4ce8-87a2-7553148c4a71)
 
      VistaLast_month_salary desglosados:
      > [!NOTE]
