@@ -7,8 +7,7 @@ Automatizar y optimizar el proceso de análisis crediticio para gestionar eficaz
 - [Introducción](#introducción)
 - [Herramientas](#herramientas)
 - [Procesamiento](#procesamiento)
-- [Hipótesis](#hipótesis)
-- [Conclusiónes](#Conclusiónes)
+- [Conclusiones](#Conclusiones)
 - [Recomendaciones](#Recomendaciones)
 - [Recursos](#Recursos)
 
@@ -59,7 +58,7 @@ Outliers:
     + debt_ratio_nulos: o nulls
     + number_times_60_89_nulos: 0 nulls
 Duplicados: 0 
-Valores fuera del alcance del analísis:
+Valores fuera del alcance del análisis:
   Se evalúan las variables para detectar la correlación entre:
  
   + number_times_delayed_payment_loan_30_59_days / number_times_delayed_payment_loan_60_89_days : 0.98655 (Esto indica una alta similitud entre ellas.)
@@ -71,7 +70,7 @@ Valores fuera del alcance del analísis:
 
   * Interpretación: Tiene una correlación muy similar con ambas variables de retraso en el pago
 
-Desviación estandar:
+Desviación estándar:
   + more_90_days_overdue: 4.1213646684267
   + number_times_delayed_payment_loan_30_59: 4.144020
   + number_times_delayed_payment_loan_60_89_day: 4.105514
@@ -88,6 +87,7 @@ Outliers:
   > ![15](https://github.com/user-attachments/assets/6ff9facf-27a8-455d-8916-41d601879ebd)
 
    + Número de outliers en using_lines_not_secured_personal_assets: 177 ya que no contamos con información adicional, no se eliminan ni imputan estos datos.
+     
   > [!NOTE]
   >![16](https://github.com/user-attachments/assets/514a9cdc-78ea-48d6-9035-0ecbb12de1ac)
 
@@ -101,11 +101,11 @@ Outliers:
 
    Vista Outliders:
    > [!NOTE]
-   > ![23](https://github.com/user-attachments/assets/32e1cb30-66c6-459a-a30c-7ab06f7c27d6)
+   >![23](https://github.com/user-attachments/assets/32e1cb30-66c6-459a-a30c-7ab06f7c27d6)
      
    + Número de outliers en more_90_days_overdue: 1946
    > [!NOTE]
-   ![Boxplot90](https://github.com/user-attachments/assets/9cf9b3c6-4884-4c55-b5a2-2bf8091401f5)
+   >![Boxplot90](https://github.com/user-attachments/assets/9cf9b3c6-4884-4c55-b5a2-2bf8091401f5)
 
    Vista Outliders:
    > [!NOTE]
@@ -128,14 +128,14 @@ Outliers:
    >![21](https://github.com/user-attachments/assets/d0e07b55-a6fd-49c9-9fcb-f151271d3138)
      
   Nuevas Variables:
-  + delay-30_59_90: Se realiza la limpieza de los Outliers, asi como la suma de las 3 variables de tiempo de retraso para crear esta columna.
-  + segmentacion_delay: Segmentación en base a los dias de retraso.
+  + delay-30_59_90: Se realiza la limpieza de los Outliers, así como la suma de las 3 variables de tiempo de retraso para crear esta columna.
+  + segmentacion_delay: Segmentación con base en los días de retraso.
   + Incumplimiento_debt_ratio: Segmentación para riesgo de incumplimiento de pago en debt_ratio.
       + Debt ratio bajo: Indica que una persona tiene poca deuda en relación con sus ingresos disponibles o activos
         + Mayor capacidad de manejar deuda.
         + Mejor capacidad de obtener crédito adicional.
         + Impacto positivo en la calificación crediticia.
-      + Debt_ratio alto: Significa que una persona tiene una cantidad significativa de deuda en comparación con sus ingresos disponibles o             activos.
+      + Debt_ratio alto: Significa que una persona tiene una cantidad significativa de deuda en comparación con sus ingresos disponibles o activos.
         + Mayor riesgo de incumplimiento.
         + Menor capacidad de endeudamiento adicional.
         + Posible impacto negativo en la calificación crediticia.
@@ -145,10 +145,10 @@ Outliers:
            + Riesgo_medio: Cuando debt_ratio > 40-60% (0.4- 0.6)
            + Riesgo_bajo: Cuando debt_ratio < 30% (0.3)
              
-  + Incumplimiento_unsec_line: La segmentación de riesgo se utiliza para clasificar a los clientes en diferentes niveles según su solvencia         crediticia. Aquí están los tres niveles comunes:
+  + Incumplimiento_unsec_line: La segmentación de riesgo se utiliza para clasificar a los clientes en diferentes niveles según su solvencia crediticia. Aquí están los tres niveles comunes:
       + Alto Riesgo: Clientes con una mayor probabilidad de incumplimiento o retraso en los pagos.
       + Medio Riesgo: Clientes con un riesgo moderado, que pueden cumplir con sus obligaciones, pero con cierta incertidumbre.
-      + Bajo Riesgo: Clientes con una alta probabilidad de cumplir con sus pagos de manera puntual23.
+      + Bajo Riesgo: Clientes con una alta probabilidad de cumplir con sus pagos de manera puntual.
       
           Asignando los siguientes valores:
            + Riesgo_alto: Cuando debt_ratio > 60% (0.6)
@@ -163,7 +163,7 @@ Outliers:
     + loan_type: 0 nulls
   Duplicados:
     + loan_id_ 0
-    + user_id: 305335 No se imputan, ni se eliminan ya que se aprecia que los duplicados son por que los clientes tienen varios tipos de credito.
+    + user_id: 305335 No se imputan, ni se eliminan, ya que se aprecia que los duplicados son porque los clientes tienen varios tipos de crédito.
     + loan_type: 0
   Outliers:
     + loan_id_ 0 
@@ -172,11 +172,11 @@ Outliers:
   Cambiar tipo de dato:
     + loan_id_ 0 
     + user_id: 0 
-    + loan_type: Se realiza la estandarización en minusculas de la palabra "real estate" asi como de la palabra "others".
+    + loan_type: Se realiza la estandarización en minúsculas de la palabra "real estate" así como de la palabra "others".
   Nuevas Variables:
-  + real_estate_loan_type: Cantidad de prestamos por cliente
-  + others_loan_type: Cantidad de prestamos por cliente
-  + total_loan_type: Total de prestamos por cliente.
+  + real_estate_loan_type: Cantidad de préstamos por cliente
+  + others_loan_type: Cantidad de préstamos por cliente
+  + total_loan_type: Total de préstamos por cliente.
 
 4.- Tabla user_info:
 
@@ -228,7 +228,7 @@ Outliers:
  > [!NOTE]
  >![Captura de pantalla 2024-07-31 150452](https://github.com/user-attachments/assets/4b6fab1d-4148-4873-941f-af7b22c29cff)
 
-2.- Visualizar la distribuiciòn 
+2.- Visualizar la distribución 
 
  > [!NOTE]
  >![Captura de pantalla 2024-07-31 151810](https://github.com/user-attachments/assets/a21264ce-17bc-4ee5-aeec-ebe227ee2b2b)
@@ -238,7 +238,7 @@ Interpretaciones:
 Gráfica Preferencia en usos de crédito:
  + La gráfica muestra que a medida que se incrementa el uso de líneas de crédito no aseguradas contra activos personales, el ratio de deuda tiende a aumentar. Sin embargo, hay una variabilidad significativa, especialmente en los niveles más altos de uso de crédito no asegurado.
 
- Gráfica de Uso de líneas de credito no aseguradas:
+ Gráfica de Uso de líneas de crédito no aseguradas:
  +  La gráfica muestra que los usuarios en sus 40s y principios de los 50s tienen los picos más altos en el uso de líneas de crédito no aseguradas. Después de los 50 años, el uso disminuye notablemente. Esto sugiere que las personas en la mediana edad son más propensas a utilizar líneas de crédito no aseguradas.
 
   Gráfica de Uso de líneas de crédito aseguradas por patrimonio:
@@ -248,7 +248,7 @@ Gráfica Preferencia en usos de crédito:
   
 3.- Calcular cuartiles, deciles o percentiles de los grupos de malos pagadores.
 
-Se analizan las variables que podrian ayudarnos a definir como es un cliente mal pagador.
+Se analizan las variables que podrían ayudarnos a definir como es un cliente mal pagador.
 
    Age
  > [!NOTE] 
@@ -274,26 +274,26 @@ Se analizan las variables que podrian ayudarnos a definir como es un cliente mal
  > [!NOTE] 
  >![Captura de pantalla 2024-07-31 152541](https://github.com/user-attachments/assets/921d8238-2b5b-4953-85fb-9a86857a6811)
 
-4.- Calcular la correlaciòn entre variables nùmericas continuas.
+4.- Calcular la correlación entre variables numéricas continuas.
 
  > [!NOTE] 
  >![Captura de pantalla 2024-07-31 152634](https://github.com/user-attachments/assets/729a35a1-5ac7-46a1-a57a-5814364fd07e)
 
  Last_month_salary / age
-  Interpretaciòn: Hay una correlación positiva muy baja entre la edad  y el salario del último mes. Esto indica que a medida que la edad aumenta, el salario del último mes tiende a aumentar ligeramente, aunque la relación es muy débil.
+  Interpretación: Hay una correlación positiva muy baja entre la edad  y el salario del último mes. Esto indica que a medida que la edad aumenta, el salario del último mes tiende a aumentar ligeramente, aunque la relación es muy débil.
 
  Debt_ratio / age
-  Interpretaciòn: Hay una correlación positiva extremadamente baja entre la edad y el ratio de deuda. Esto sugiere que la edad tiene muy poca influencia en el ratio de deuda de una persona.
+  Interpretación: Hay una correlación positiva extremadamente baja entre la edad y el ratio de deuda. Esto sugiere que la edad tiene muy poca influencia en el ratio de deuda de una persona.
 
  Debt_ratio / last_month_salary
-  Interpretaciòn: Hay una correlación negativa muy baja entre el ratio de deuda (debt_ratio) y el salario del último mes. Esto implica que, a medida que el ratio de deuda aumenta, el salario del último mes tiende a disminuir ligeramente, pero la relación es muy débil.
+  Interpretación: Hay una correlación negativa muy baja entre el ratio de deuda (debt_ratio) y el salario del último mes. Esto implica que, a medida que el ratio de deuda aumenta, el salario del último mes tiende a disminuir ligeramente, pero la relación es muy débil.
 
   Debt_ratio / Using_lines_not_secured_personal_asset
-  Interpretaciòn: Hay una correlación positiva extremadamente baja entre el ratio de deuda y el uso de líneas de crédito no aseguradas. Esto indica que el uso de líneas de crédito no aseguradas tiende a aumentar ligeramente con el aumento del ratio de deuda, pero la relación es prácticamente insignificante.
+  Interpretación: Hay una correlación positiva extremadamente baja entre el ratio de deuda y el uso de líneas de crédito no aseguradas. Esto indica que el uso de líneas de crédito no aseguradas tiende a aumentar ligeramente con el aumento del ratio de deuda, pero la relación es prácticamente insignificante.
 
 5.- Calcular riesgo relativo
 
-Se analizan las variables para determinar el numero de veces que corre el riesgo de suceder el evento (malos pagadores):
+Se analizan las variables para determinar el número de veces que corre el riesgo de suceder el evento (malos pagadores):
 
   Age
  
@@ -322,7 +322,7 @@ Number_dependents
  >![Captura de pantalla 2024-07-31 153846](https://github.com/user-attachments/assets/ba0678f7-db8e-4045-b735-a81f7af93551)
 
  Interpretación: 
- + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 5.68 veces màs probabilidades de incumplier en sus pagos.
+ + Mayor riesgo relativo: Los usuarios en el rango de dependientes medio (+1) tienen 5.68 veces más probabilidades de incumplir en sus pagos.
  + Menor riesgo relativo: Los usuarios de los cuartiles 1 y 2  indican que no hay riesgo de que ocurra el evento en estos cuartiles, posiblemente porque no hay dependientes en estos grupos.
  + Tendencias Hay una tendencia general a que el riesgo relativo aumente conforme los dependientes.
    
@@ -343,15 +343,15 @@ Using_lines_not_secured_personal_asset
 
 Interpretación: 
  + Mayor riesgo relativo: Los usuarios del cuartil 4 tienen el mayor riesgo relativo (41.08) y la tasa más alta de malos pagadores (0.06559). El máximo uso de líneas de crédito no aseguradas en este cuartil es extremadamente alto (22,000), lo que sugiere un riesgo significativamente mayor de incumplimiento asociado con altos niveles de endeudamiento no asegura
- + Menor riesgo relativo: Los usuarios de los cuartil 1 presentan el menor riesgo relativo (0.038) y una muy baja tasa de malos pagadores (0.00089). Es el cuartil con el uso mínimo de líneas de crédito no aseguradas, indicando que un bajo nivel de endeudamiento a través de líneas no aseguradas está asociado con un bajo riesgo de incumplimiento.
+ + Menor riesgo relativo: Los usuarios de el cuartil 1 presentan el menor riesgo relativo (0.038) y una muy baja tasa de malos pagadores (0.00089). Es el cuartil con el uso mínimo de líneas de crédito no aseguradas, indicando que un bajo nivel de endeudamiento a través de líneas no aseguradas está asociado con un bajo riesgo de incumplimiento.
  + Tendencias: Estos hallazgos sugieren que un mayor uso de líneas de crédito no aseguradas está fuertemente correlacionado con un aumento en el riesgo de incumplimiento. Esto podría indicar que políticas más estrictas en la concesión de crédito no asegurado o una evaluación más detallada del riesgo crediticio podrían ser necesarias para los individuos en los cuartiles superiores de uso.
 
-## **Hipótesis**
+### 1.3 Hipótesis
 
 Para la validación de hipótesis en el proceso de evaluación del riesgo relativo, se analizarán distintas variables, como el historial de pagos, la deuda total y los ingresos, entre otros.
 El objetivo es determinar cómo estas variables influyen en el riesgo de incumplimiento. Este análisis permitirá clasificar a los clientes en diferentes categorías de riesgo.
 
- + *Los más jóvenes tienen un mayor riesgo de impago:*  Validada: Los individuos más jóvenes (Generacion Z- Millenials) tienden a tener balances más  altos y límites de crédito más bajos, lo que puede indicar un  mayor riesgo de impago.
+ + *Los más jóvenes tienen un mayor riesgo de impago:*  Validada: Los individuos más jóvenes (Generación Z- Millennials) tienden a tener balances más  altos y límites de crédito más bajos, lo que puede indicar un  mayor riesgo de impago.
    
  + *Las personas con más cantidad de préstamos activos tienen mayor riesgo de ser malos pagadores.* Si se observa que un mayor número de  prestamos activos está asociado con un mayor número de pagos incumplidos en comparación con los pagos cumplidos.
    
@@ -361,33 +361,36 @@ El objetivo es determinar cómo estas variables influyen en el riesgo de incumpl
  
  + *Existe una diferencia significativa en el riesgo de ser mal pagador entre los diferentes cuartiles del número de dependientes* Las personas con 0 dependientes en el primer cuartil y las personas con 1 a 13 dependientes en el cuarto cuartil tienen un riesgo mayor de ser mal pagadores en comparación con aquellos en los otros cuartiles.
 
- ## **Score de Riesgo**
+ ### Score de Riesgo
 
  1.- Creación de variables Dummys
  La regresión logística asigna un peso (coeficiente) a cada característica (variable dummy y otras variables). Estos coeficientes indican la importancia de cada característica para predecir la probabilidad de incumplimiento. (0 u 1)
 
- > [!NOTE] 
- >![Captura de pantalla 2024-07-30 192248](https://github.com/user-attachments/assets/2a017c20-d897-4498-a89a-a62229f8c031)
-  
-2.- Calculo de Score Riesgo
+ 2.- Cálculo de Score Riesgo
 
 El modelo de regresión logística calcula una probabilidad de incumplimiento para cada registro. Esta probabilidad se convierte en un resultado binario utilizando un umbral (generalmente 0.5). Si la probabilidad es mayor que el umbral, el resultado es 1 (incumplimiento), de lo contrario, es 0 (no incumplimiento).
 
-> [!NOTE] 
->![Captura de pantalla 2024-07-30 192451](https://github.com/user-attachments/assets/46185a3e-6bc1-417c-8803-88d4249437b8)
+ > [!NOTE] 
+ >![Captura de pantalla 2024-08-01 123140](https://github.com/user-attachments/assets/b665d54b-ec59-43f0-b920-d7cc261e0daa)
+  
 
-3.- Matriz de confusión
+3.- Matriz de confusión y métricas de precisión.
 
 La matriz de confusión te permite evaluar el rendimiento del modelo comparando las predicciones con los valores reales de default_flag.
 
 > [!NOTE] 
->![Captura de pantalla 2024-07-30 192538](https://github.com/user-attachments/assets/46874696-d82b-47c9-b193-724c17d2ca90)
+>![Captura de pantalla 2024-08-01 123806](https://github.com/user-attachments/assets/edddf909-9f10-4061-8e36-8da34aff80c4)
 
-4.- Metricas de presicion: Resultados
+Resultados Matriz de Confusión:
 
-> [!NOTE] 
->![Captura de pantalla 2024-07-30 193040](https://github.com/user-attachments/assets/16016e46-9e04-4158-910a-f3dc32afd0e5)
++ True Positives (TP) = 28,709: El número de casos correctamente predichos como positivos (por ejemplo, mal pagadores que fueron correctamente identificados como mal pagadores).
++ False Positives (FP) = 66: El número de casos incorrectamente predichos como positivos (por ejemplo, buenos pagadores que fueron incorrectamente identificados como mal pagadores).
++ False Negatives (FN) = 6,582: El número de casos incorrectamente predichos como negativos (por ejemplo, mal pagadores que fueron incorrectamente identificados como buenos pagadores).
++ True Negatives (TN) = 566: El número de casos correctamente predichos como negativos (por ejemplo, buenos pagadores que fueron correctamente identificados como buenos pagadores).
 
- + Precisión (0.98): Indica que la mayoría de las predicciones positivas son correctas. El modelo tiene un buen rendimiento en identificar casos de incumplimiento.
- + Recall (1.00): El modelo está detectando todos los casos de incumplimiento, sin perder ninguno. Esto es muy positivo, pero puede indicar que el umbral de clasificación podría estar muy ajustado a detectar todos los positivos.
- + Exactitud (0.98): Indica que la proporción total de predicciones correctas es alta. Sin embargo, dado que no hay verdaderos negativos (TN = 0), esto podría ser un indicio de que el modelo está muy sesgado hacia la predicción positiva.
+Resultados Métricas de Precisión:
+
++ Accuracy (0.8149375052): La exactitud del modelo es del 81.49%. Esto significa que el modelo predice correctamente el 81.49% de las instancias en el conjunto de prueba, lo cual es bastante sólido.
++ Precision (0.9977063423): La precisión es del 99.77%. Esto indica que el 99.77% de los casos predichos como positivos (mal pagadores) son realmente positivos. La alta precisión sugiere que el modelo es muy eficaz para evitar falsos positivos.
++ Recall (0.8134935253): El recall es del 81.35%. Esto indica que el modelo está capturando el 81.35% de todos los verdaderos positivos (mal pagadores reales). Un recall en este nivel es bastante bueno, lo que sugiere que el modelo identifica correctamente una gran parte de los casos positivos.
++ F1 Score (0.8962320107): El F1 Score es del 89.62%. Esta métrica equilibra la precisión y el recall. Un F1 Score alto indica un buen equilibrio entre estos dos aspectos, lo que sugiere que el modelo es confiable tanto en la identificación correcta de los positivos como en evitar falsos positivos.
