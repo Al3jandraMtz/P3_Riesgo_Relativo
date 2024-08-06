@@ -432,5 +432,9 @@ Interpretación:
 
 * Debido a que muchos salarios tienen valores repetidos (como 0, 10, 20), la función logística no se ajusta bien a los datos, resultando en una línea de probabilidad empinada y rápidamente aplanada. Esto indica que el salario del último mes no es un buen predictor de incumplimiento.
 
+Debt Ratio
+
+> [!NOTE] 
+>![Last_Month (2)](https://github.com/user-attachments/assets/f467dee4-6b69-4849-96be-a27ab8721c90)
 
 
