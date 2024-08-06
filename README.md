@@ -7,6 +7,8 @@ Automatizar y optimizar el proceso de análisis crediticio para gestionar eficaz
 - [Introducción](#introducción)
 - [Herramientas](#herramientas)
 - [Procesamiento](#procesamiento)
+- [Score de Riesgo](#score_de_riesgo)
+- [Regresión Logistica](#regresion_logistica)
 - [Conclusiones](#Conclusiones)
 - [Recomendaciones](#Recomendaciones)
 - [Recursos](#Recursos)
@@ -333,7 +335,7 @@ Debt_ratio
  >![Captura de pantalla 2024-07-31 153931](https://github.com/user-attachments/assets/05b0f95f-765e-4b0c-abfd-f762be96bb16)
 
  Interpretación: 
- + Mayor riesgo relativo: Los usuarios del  tercer cuartil presentan el mayor riesgo relativo (1.41) y la tasa de malos pagadores más alta (2.25%). Este cuartil muestra un punto crítico donde el riesgo de incumplimiento es significativamente mayor.
+ + Mayor riesgo relativo: Los usuarios del  tercer cuartil presentan el mayor riesgo relativo (1.40) y la tasa de malos pagadores más alta (2.24%). Este cuartil muestra un punto crítico donde el riesgo de incumplimiento es significativamente mayor.
  + Menor riesgo relativo: Los usuarios del cuartil 1 tienen menor riesgo relativo (0.71) de ser malos pagadores, con una tasa de malos pagadores de 1.35%.
  + Tendencias: A medida que el debt_ratio aumenta, tanto la tasa de malos pagadores como el riesgo relativo tienden a aumentar hasta el tercer cuartil. El cuarto cuartil, aunque tiene los ratios de deuda más altos, muestra un riesgo relativo menor (1.09) que el tercer cuartil, lo que sugiere que algunos de los deudores con ratios extremadamente altos pueden tener factores mitigantes no reflejados solo en el debt_ratio.
 
@@ -362,7 +364,7 @@ El objetivo es determinar cómo estas variables influyen en el riesgo de incumpl
  
  + *Existe una diferencia significativa en el riesgo de ser mal pagador entre los diferentes cuartiles del número de dependientes* Las personas con 0 dependientes en el primer cuartil y las personas con 1 a 13 dependientes en el cuarto cuartil tienen un riesgo mayor de ser mal pagadores en comparación con aquellos en los otros cuartiles.
 
- ### Score de Riesgo
+ ## Score de Riesgo
 
  1.- Creación de variables Dummys
  La regresión logística asigna un peso (coeficiente) a cada característica (variable dummy y otras variables). Estos coeficientes indican la importancia de cada característica para predecir la probabilidad de incumplimiento. (0 u 1)
@@ -395,3 +397,6 @@ Resultados Métricas de Precisión:
 + Precision (0.9977063423): La precisión es del 99.77%. Esto indica que el 99.77% de los casos predichos como positivos (mal pagadores) son realmente positivos. La alta precisión sugiere que el modelo es muy eficaz para evitar falsos positivos.
 + Recall (0.8134935253): El recall es del 81.35%. Esto indica que el modelo está capturando el 81.35% de todos los verdaderos positivos (mal pagadores reales). Un recall en este nivel es bastante bueno, lo que sugiere que el modelo identifica correctamente una gran parte de los casos positivos.
 + F1 Score (0.8962320107): El F1 Score es del 89.62%. Esta métrica equilibra la precisión y el recall. Un F1 Score alto indica un buen equilibrio entre estos dos aspectos, lo que sugiere que el modelo es confiable tanto en la identificación correcta de los positivos como en evitar falsos positivos.
+
+## **Regresión Logística**
+
