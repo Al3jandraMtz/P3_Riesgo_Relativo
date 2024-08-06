@@ -7,6 +7,7 @@ Automatizar y optimizar el proceso de análisis crediticio para gestionar eficaz
 - [Introducción](#introducción)
 - [Herramientas](#herramientas)
 - [Procesamiento](#procesamiento)
+  fff
 - [Score de Riesgo](#score_de_riesgo)
 - [Regresión Logistica](#regresion_logistica)
 - [Conclusiones](#Conclusiones)
