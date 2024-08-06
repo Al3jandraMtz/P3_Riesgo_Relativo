@@ -435,6 +435,20 @@ Interpretación:
 Debt Ratio
 
 > [!NOTE] 
->![Last_Month (2)](https://github.com/user-attachments/assets/f467dee4-6b69-4849-96be-a27ab8721c90)
+>![Debt-default (2)](https://github.com/user-attachments/assets/f9dcaa85-7a00-46a8-ad81-d47538454ed8)
 
+> [!NOTE] 
+>![Debt-default (2)](https://github.com/user-attachments/assets/f9dcaa85-7a00-46a8-ad81-d47538454ed8)
 
+Interpretación:
+* La mayoría de los datos parecen estar agrupados en valores discretos de Incumplimiento_debt_ratio, y los valores de default_flag están cerca de 0 o 1.
+* Derivado de los bajos valores la curva es bastante plana, lo que indica que la variable Incumplimiento_debt_ratio no es un buen predictor del incumplimiento (default_flag).
+
+ Using_lines_not_secured_personal_asset
+
+> [!NOTE] 
+>![Debt-default (2)](https://github.com/user-attachments/assets/f9dcaa85-7a00-46a8-ad81-d47538454ed8)
+
+> [!NOTE] 
+>![Debt-default (2)](https://github.com/user-attachments/assets/f9dcaa85-7a00-46a8-ad81-d47538454ed8)
+ 
