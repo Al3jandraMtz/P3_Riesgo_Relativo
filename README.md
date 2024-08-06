@@ -7,7 +7,6 @@ Automatizar y optimizar el proceso de análisis crediticio para gestionar eficaz
 - [Introducción](#introducción)
 - [Herramientas](#herramientas)
 - [Procesamiento](#procesamiento)
-  fff
 - [Score de Riesgo](#score_de_riesgo)
 - [Regresión Logistica](#regresion_logistica)
 - [Conclusiones](#Conclusiones)
@@ -400,4 +399,38 @@ Resultados Métricas de Precisión:
 + F1 Score (0.8962320107): El F1 Score es del 89.62%. Esta métrica equilibra la precisión y el recall. Un F1 Score alto indica un buen equilibrio entre estos dos aspectos, lo que sugiere que el modelo es confiable tanto en la identificación correcta de los positivos como en evitar falsos positivos.
 
 ## **Regresión Logística**
+
+Examina cómo una variable afecta directamente a otra, analizamos cómo ciertas variables independientes influyen en la probabilidad de un evento específico (la variable dependiente).
+
+Age:
+
+> [!NOTE] 
+>![age-default (2)](https://github.com/user-attachments/assets/d8e1d074-61cf-4c7d-a97d-f99a04ce7e8d)
+
+> [!NOTE] 
+>![age-default (2)](https://github.com/user-attachments/assets/27069467-6081-4730-8524-259463064910)
+
+Interpretación:
+
+* La línea roja indica que la probabilidad de default disminuye con la edad. Es decir, según el modelo, las personas más jóvenes tienen una mayor probabilidad de estar en morosidad en comparación con las personas mayores.
+
+* Los puntos azules representan los valores reales de la variable objetivo para cada edad en el conjunto de datos. La disposición de estos puntos sugiere que, en el conjunto de datos, muchos individuos fueron clasificados como no default (0) independientemente de la edad, aunque el modelo indica una mayor probabilidad de default para los más jóvenes.
+
+* la curva de regresión logística no se ajusta bien a los datos, ya que la mayoría de los puntos están agrupados en 0 o 1, y la curva es bastante suave. Esto podría indicar que la edad no es un buen predictor para la variable default_flag o que otros factores no considerados en este modelo podrían estar influyendo en el resultado.
+
+Last_month_Salary
+
+> [!NOTE] 
+>![Last_Month (2)](https://github.com/user-attachments/assets/f467dee4-6b69-4849-96be-a27ab8721c90)
+
+> [!NOTE] 
+>![Last_Month (1)](https://github.com/user-attachments/assets/ee0342ef-9858-42cd-b462-dff4ca9fdb2d)
+
+Interpretación:
+
+* La línea roja indica que el modelo predice una alta probabilidad de incumplimiento con salarios muy bajos, disminuyendo rápidamente a medida que el salario aumenta.
+
+* Debido a que muchos salarios tienen valores repetidos (como 0, 10, 20), la función logística no se ajusta bien a los datos, resultando en una línea de probabilidad empinada y rápidamente aplanada. Esto indica que el salario del último mes no es un buen predictor de incumplimiento.
+
+
 
