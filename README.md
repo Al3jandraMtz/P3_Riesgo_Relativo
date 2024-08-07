@@ -444,11 +444,34 @@ Interpretación:
 * La mayoría de los datos parecen estar agrupados en valores discretos de Incumplimiento_debt_ratio, y los valores de default_flag están cerca de 0 o 1.
 * Derivado de los bajos valores la curva es bastante plana, lo que indica que la variable Incumplimiento_debt_ratio no es un buen predictor del incumplimiento (default_flag).
 
- Using_lines_not_secured_personal_asset
+Using_lines_not_secured_personal_asset
 
 > [!NOTE] 
->![Debt-default (2)](https://github.com/user-attachments/assets/f9dcaa85-7a00-46a8-ad81-d47538454ed8)
+>![alt text](image.png)
 
 > [!NOTE] 
->![Debt-default (2)](https://github.com/user-attachments/assets/f9dcaa85-7a00-46a8-ad81-d47538454ed8)
+>![alt text](image-1.png)
  
+Interpretación:
+
+* La línea roja de la función logística tiene una pendiente positiva, lo que indica que a medida que aumenta el valor de “Incumplimiento_unsec_line”, también aumenta la probabilidad de incumplimiento. 
+
+* Los puntos azules representan los datos observados. Se observa que, para valores bajos de “Incumplimiento_unsec_line”, la mayoría de los puntos están en 0 (sin incumplimiento), mientras que para valores más altos, los puntos tienden a acercarse a 1 (con incumplimiento). 
+
+* La forma de la curva logística sugiere que “Incumplimiento_unsec_line” es un buen predictor del incumplimiento, ya que muestra una relación clara y creciente entre esta variable y la probabilidad de default.
+
+Delay 30-59-90
+
+> [!NOTE] 
+>![alt text](image-2.png)
+
+> [!NOTE] 
+>![alt text](image-3.png)
+
+Interpretación:
+
+* La gráfica sugiere que delay_30_59_90 es un buen predictor de incumplimiento (default_flag).
+
+* Aquellos con un número de días de retraso mayor a 3 tienen una alta probabilidad de incumplimiento.
+
+* La función logística se ajusta bastante bien a los datos, ya que sigue de cerca la distribución de los puntos reales. Sin embargo, fuera del rango crítico (especialmente a la derecha de la gráfica), la función se estabiliza, indicando que la probabilidad de incumplimiento se mantiene constante para mayores valores de retraso.
