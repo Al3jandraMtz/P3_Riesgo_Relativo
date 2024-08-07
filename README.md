@@ -7,8 +7,11 @@ Automatizar y optimizar el proceso de análisis crediticio para gestionar eficaz
 - [Introducción](#introducción)
 - [Herramientas](#herramientas)
 - [Procesamiento](#procesamiento)
-- [Score de Riesgo](#score_de_riesgo)
-- [Regresión Logistica](#regresion_logistica)
+  - [Limpieza de datos ](#limpieza_de_datos)
+  - [Análisis exploratorio](#análisis_exploratorio)
+  - [Hipótesis](#hipótesis)
+  - [Score de Riesgo](#score_de_riesgo)
+  - [Regresión Logistica](#regresion_logistica)
 - [Conclusiones](#Conclusiones)
 - [Recomendaciones](#Recomendaciones)
 - [Recursos](#Recursos)
@@ -36,6 +39,7 @@ El objetivo del análisis es armar un score crediticio a partir de un análisis 
   1. Google BigQuery
   2. Google Colab
   3. Google Looker Studio
+  4. Visual Studio
 
 ## **Procesamiento**
 
@@ -475,3 +479,49 @@ Interpretación:
 * Aquellos con un número de días de retraso mayor a 3 tienen una alta probabilidad de incumplimiento.
 
 * La función logística se ajusta bastante bien a los datos, ya que sigue de cerca la distribución de los puntos reales. Sin embargo, fuera del rango crítico (especialmente a la derecha de la gráfica), la función se estabiliza, indicando que la probabilidad de incumplimiento se mantiene constante para mayores valores de retraso.
+
+### **Conclusiones**
+**Modelo de Riesgo Crediticio**
+
+ El modelo está diseñado para optimizar la toma de decisiones en la concesión de créditos, priorizando la precisión en la identificación de clientes con perfiles de alto riesgo.
+
+ 1.- Age: Clientes 21-41
+
+ 2.- Last Month Salary: Clientes con salarios de 0 a 3,878 USD
+
+ 3.-Debt ratio: Clientes con un uso mayor a 36.65%  de credito.
+
+ 4.-Ussing lines not secured: Clientes con un uso mayor a 54.65%  de credito.
+
+ 5.-Delay 30-59-90: Clientes con retrasos mayores a 1 día.
+
+
+### **Recomendaciones*
+Se emiten las siguientes recomendaciones:
+
+1. Mejorar la recolección de datos (1st):
+    * Precisión y Completitud: Garantizar la recolección de datos precisos y completos sobre los clientes. Datos faltantes o incorrectos pueden afectar significativamente la efectividad del modelo.
+    * Ampliar el conjunto de variables: Considera la inclusión de más variables que puedan ser relevantes para la predicción del riesgo crediticio, como el historial crediticio, la estabilidad laboral, y otros factores socioeconómicos.
+
+2. Monitoreo del Desempeño (2nd):
+    * Evaluación Continua: Implementar un sistema de monitoreo para evaluar el rendimiento del modelo continuamente. Esto permite identificar rápidamente cualquier desviación en el desempeño del modelo.
+    * Actualizaciones Periódicas: Realizar ajustes periódicos en el modelo para asegurarte de que sigue siendo relevante y preciso a medida que cambian los datos y las condiciones del mercado.
+
+3. Cumplimiento Normativo (3rd):
+    * Regulaciones y Normas: Garantizar que el modelo cumpla con todas las regulaciones y normativas locales e internacionales en materia de privacidad y uso de datos, así como en la evaluación de crédito.
+    * Transparencia: Manténer un registro claro y transparente de cómo se utilizan los datos en el modelo y asegúrate de que los clientes estén informados y protegidos.
+
+4. Evaluación de Bias (4th):
+    * Mitigación del Sesgo: Evalúar el modelo para identificar cualquier sesgo inherente que pueda existir, especialmente en función de características sensibles como la edad, el género o el origen étnico.
+    * Equidad en las Decisiones: Garantizar que el modelo toma decisiones justas y equitativas para todos los clientes, y realiza ajustes si se identifican patrones de discriminación o sesgo.
+
+Estas recomendaciones buscan asegurar que el modelo no solo sea preciso, sino también ético, justo y conforme a las normativas vigentes.
+
+## **Recursos**
+
+### Presentación del Proyecto 
+Accede a la presentación del proyecto [aquí](https://drive.google.com/file/d/1GdkslQ3pPk7i1k2rmBQY7mdTkbuySkSC/view?usp=sharing)
+
+### Dashboard 
+Accede al PDF de mi dashboard de Power BI haciendo clic [aquí](https://lookerstudio.google.com/s/hZ4DBBeUt_0).
+
