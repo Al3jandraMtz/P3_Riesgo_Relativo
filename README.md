@@ -24,7 +24,7 @@ Automatizar y optimizar el proceso de análisis crediticio para gestionar eficaz
 El riesgo relativo se calcula como la razón de las tasas de incidencia entre estos dos grupos:
 
   > [!NOTE]
-  > ![1](https://github.com/user-attachments/assets/90959969-7424-4843-9d1c-352066d53971))
+  > ![1](https://github.com/user-attachments/assets/90959969-7424-4843-9d1c-352066d53971)
 
   * Si el RR es igual a 1, significa que no hay diferencia en la incidencia entre los dos grupos. En otras palabras, la exposición al factor de riesgo no parece afectar la probabilidad de desarrollar la        enfermedad.
   * Si el RR es mayor que 1, indica que el grupo expuesto tiene un mayor riesgo de desarrollar la enfermedad en comparación con el grupo no expuesto. Por ejemplo, si RR = 1.5, significa que el grupo             expuesto tiene un 50% más de riesgo que el grupo no expuesto.
@@ -43,7 +43,7 @@ El objetivo del análisis es armar un score crediticio a partir de un análisis 
 
 ## **Procesamiento**
 
-### 1.1 Limpieza de datos 
+  ### 1.1 Limpieza de datos 
 
 1.- Tabla Default:
   Nulos:
@@ -71,8 +71,8 @@ Valores fuera del alcance del análisis:
   + more_90_days_overdue, number_times_delayed_payment_loan_60_89_days : 0.99217 
   + more_90_days_overdue, number_times_delayed_payment_loan_30_59_day: 0.98291
 
-  > [!NOTE]
-  >![2](https://github.com/user-attachments/assets/f095f852-5dcd-452f-ab82-d92813144db1)
+    > 
+    > ![2](https://github.com/user-attachments/assets/f095f852-5dcd-452f-ab82-d92813144db1)
 
   * Interpretación: Tiene una correlación muy similar con ambas variables de retraso en el pago
 
@@ -81,56 +81,57 @@ Desviación estándar:
   + number_times_delayed_payment_loan_30_59: 4.144020
   + number_times_delayed_payment_loan_60_89_day: 4.105514
 
-  >[!NOTE]
-  >![3](https://github.com/user-attachments/assets/36e93ada-a92e-4c97-b08b-229da7848dbb)
+    > 
+    > ![3](https://github.com/user-attachments/assets/36e93ada-a92e-4c97-b08b-229da7848dbb)
 
   * Interpretación: Las tres variables tienen desviaciones estándar similares, lo que sugiere que sus valores están dispersos en torno a sus medias de manera similar.
 
   Dado que *more_90_days_overdue* tiene una correlación similar con ambas variables de retraso en el pago y su desviación estándar es similar a las otras dos, podríamos considerar eliminarla para evitar     redundancia en nuestro análisis.
 
 Outliers:
-  > [!NOTE]
+  > 
   >![15](https://github.com/user-attachments/assets/6ff9facf-27a8-455d-8916-41d601879ebd)
 
    + Número de outliers en using_lines_not_secured_personal_assets: 177 ya que no contamos con información adicional, no se eliminan ni imputan estos datos.
      
-  > [!NOTE]
+  > 
   >![16](https://github.com/user-attachments/assets/514a9cdc-78ea-48d6-9035-0ecbb12de1ac)
 
   Vista outliders:
-  > [!NOTE]
+  > 
   > ![17](https://github.com/user-attachments/assets/ab67c30e-12f6-4cd0-ac53-054e905c2101)
 
    + Número de outliers en debt_ratio: 7579 Ya que no contamos con información adicional, no se eliminan ni se imputan estos datos.
-  > [!NOTE]
+
+  > 
    > ![22](https://github.com/user-attachments/assets/1394e668-9bfc-481f-8339-553341f517c9)
 
    Vista Outliders:
-   > [!NOTE]
+   > 
    >![23](https://github.com/user-attachments/assets/32e1cb30-66c6-459a-a30c-7ab06f7c27d6)
      
    + Número de outliers en more_90_days_overdue: 1946
-   > [!NOTE]
+   > 
    >![Boxplot90](https://github.com/user-attachments/assets/9cf9b3c6-4884-4c55-b5a2-2bf8091401f5)
 
    Vista Outliders:
-   > [!NOTE]
+   > 
     >![18](https://github.com/user-attachments/assets/55c80bc5-5259-473e-8d2a-e2639d8e7d33)
 
    + Número de outliers en number_times_delayed_payment_loan_30_59_days: 5812 se deciden imputar (eliminar) los valores mayores a 20 (63 user_id)
-   > [!NOTE]
+   > 
    >![18](https://github.com/user-attachments/assets/55c80bc5-5259-473e-8d2a-e2639d8e7d33)
 
    Vista Outliders:
-   > [!NOTE]
+   > 
    >![19](https://github.com/user-attachments/assets/ece79371-c1a2-4d15-91fa-bedcf9b639d3)
 
    + Número de outliers en number_times_delayed_payment_loan_60_89_days: 1865 se deciden imputar (eliminar) los valores mayores a 20 (63 user_id).
-   > [!NOTE]
+   > 
    > ![20](https://github.com/user-attachments/assets/b4cbcb95-5635-45b8-8c8b-5d23c402dff9)
 
    Vista Outliders:
-   > [!NOTE]
+   > 
    >![21](https://github.com/user-attachments/assets/d0e07b55-a6fd-49c9-9fcb-f151271d3138)
      
   Nuevas Variables:
@@ -163,65 +164,71 @@ Outliers:
 
 3.- Tabla Loans_Outstanding:
 
-  Nulos:
-    + loan_id_ 0 nulls
-    + user_id: 0 nulls
-    + loan_type: 0 nulls
+Nulos:
+  + loan_id_ 0 nulls
+  + user_id: 0 nulls
+  + loan_type: 0 nulls
+  
   Duplicados:
-    + loan_id_ 0
-    + user_id: 305335 No se imputan, ni se eliminan, ya que se aprecia que los duplicados son porque los clientes tienen varios tipos de crédito.
-    + loan_type: 0
-  Outliers:
-    + loan_id_ 0 
-    + user_id: 0 
-    + loan_type: 0 
-  Cambiar tipo de dato:
-    + loan_id_ 0 
-    + user_id: 0 
-    + loan_type: Se realiza la estandarización en minúsculas de la palabra "real estate" así como de la palabra "others".
-  Nuevas Variables:
+  + loan_id_ 0
+  + user_id: 305335 No se imputan, ni se eliminan, ya que se aprecia que los duplicados son porque los clientes tienen varios tipos de crédito.
+  + loan_type: 0
+
+Outliers:
+  + loan_id_ 0 
+  + user_id: 0 
+  + loan_type: 0 
+
+Cambiar tipo de dato:
+  + loan_id_ 0 
+  + user_id: 0 
+  + loan_type: Se realiza la estandarización en minúsculas de la palabra "real estate" así como de la palabra "others".
+
+Nuevas Variables:
   + real_estate_loan_type: Cantidad de préstamos por cliente
   + others_loan_type: Cantidad de préstamos por cliente
   + total_loan_type: Total de préstamos por cliente.
 
 4.- Tabla user_info:
 
-  Nulos:
+ Nulos:
   + user_id: 0 nulls
   + age: 0 nulls
   + sex: 0 nulls
   + last_mont_salary: 7199 nulls (valor 0)
   + number_dependents: 943 nulls
-  Duplicados:
+
+Duplicados:
   + user_id: 0 
   + age: 0 
   + sex: 0 
   + last_mont_salary: 0 
   + number_dependents: 0
-  Outliers:
+
+Outliers:
   + age: 10 Outliders se determina eliminar las edades mayores a 96 años
     
-     > [!NOTE]
+     > 
      > ![5](https://github.com/user-attachments/assets/0bf0e07c-4cd4-4e7c-827c-fa45f06afbaf)
 
      Vista Outliders:
-     > [!NOTE]
+     > 
      > ![6](https://github.com/user-attachments/assets/1726400c-4d3b-423a-a1aa-bff1df92568a)
      
    + number_dependents: 3,230 Outliers al no tener información clara sobre cual seria la cantidad limite de numero de dependientes por user_id se determina dejar los valores tal como estan.
-     > [!NOTE]
+     > 
      >![12](https://github.com/user-attachments/assets/f1c2509e-9f2b-4467-b3a3-9701e1986f05)
 
       Vista Outliders:
-     > [!NOTE]
+     > 
      >![14](https://github.com/user-attachments/assets/665583bf-d935-4b6f-ad9d-8abb6ff6917d)
      
    + last_month_salary: 1170 Outliers  se llega a la decisión realizar la imputación de los datos mediante el reemplazo de los valores atípicos con el valor promedio de los dos segmentos (Sueldo bajo)          (Sueldo alto)
-     > [!NOTE]
+     > 
      >![10](https://github.com/user-attachments/assets/73302ffc-f545-4ce8-87a2-7553148c4a71)
 
      VistaLast_month_salary desglosados:
-     > [!NOTE]
+     > 
      >![13](https://github.com/user-attachments/assets/3aa70616-ca01-4445-863f-07c12ecc77c5)
 
   Nuevas Variables:
@@ -232,12 +239,12 @@ Outliers:
 
 1.- Aplicar medidas de tendencia central
 
- > [!NOTE]
+ > 
  >![Captura de pantalla 2024-07-31 150452](https://github.com/user-attachments/assets/4b6fab1d-4148-4873-941f-af7b22c29cff)
 
 2.- Visualizar la distribución 
 
- > [!NOTE]
+ > 
  >![Captura de pantalla 2024-07-31 151810](https://github.com/user-attachments/assets/a21264ce-17bc-4ee5-aeec-ebe227ee2b2b)
 
 Interpretaciones:
@@ -258,45 +265,51 @@ Gráfica Preferencia en usos de crédito:
 Se analizan las variables que podrían ayudarnos a definir como es un cliente mal pagador.
 
    Age
- > [!NOTE] 
+ > 
  > ![Captura de pantalla 2024-07-31 152320](https://github.com/user-attachments/assets/453f1a3b-920b-4927-be67-36f095427df2)
 
    Last_salary_month
- > [!NOTE] 
+ > 
  >![Captura de pantalla 2024-07-31 152329](https://github.com/user-attachments/assets/6a286c0d-45ed-4ce9-a0cd-752e89e2035a)
 
    Number_dependents
- > [!NOTE] 
+ >  
  >![Captura de pantalla 2024-07-31 152413](https://github.com/user-attachments/assets/29c7c030-a007-4d7b-929e-afaf4e5ae5db)
 
    Debt_ratio
- > [!NOTE] 
+ > 
  >!![Captura de pantalla 2024-07-31 152438](https://github.com/user-attachments/assets/b88277d9-6c74-4066-b0b3-9f62e2dcc914)
 
    Using_lines_not_secured_personal_asset
- > [!NOTE] 
+ > 
  >![Captura de pantalla 2024-07-31 152507](https://github.com/user-attachments/assets/328f10be-8a85-4d59-8f29-bcf043de79c8)
 
   Delay_30-59-89
- > [!NOTE] 
+ > 
  >![Captura de pantalla 2024-07-31 152541](https://github.com/user-attachments/assets/921d8238-2b5b-4953-85fb-9a86857a6811)
 
 4.- Calcular la correlación entre variables numéricas continuas.
 
- > [!NOTE] 
+ > 
  >![Captura de pantalla 2024-07-31 152634](https://github.com/user-attachments/assets/729a35a1-5ac7-46a1-a57a-5814364fd07e)
 
+
  Last_month_salary / age
-  Interpretación: Hay una correlación positiva muy baja entre la edad  y el salario del último mes. Esto indica que a medida que la edad aumenta, el salario del último mes tiende a aumentar ligeramente, aunque la relación es muy débil.
+
+  Interpretación: 
+  Hay una correlación positiva muy baja entre la edad  y el salario del último mes. Esto indica que a medida que la edad aumenta, el salario del último mes tiende a aumentar ligeramente, aunque la relación es muy débil.
 
  Debt_ratio / age
-  Interpretación: Hay una correlación positiva extremadamente baja entre la edad y el ratio de deuda. Esto sugiere que la edad tiene muy poca influencia en el ratio de deuda de una persona.
+  Interpretación: 
+  Hay una correlación positiva extremadamente baja entre la edad y el ratio de deuda. Esto sugiere que la edad tiene muy poca influencia en el ratio de deuda de una persona.
 
  Debt_ratio / last_month_salary
-  Interpretación: Hay una correlación negativa muy baja entre el ratio de deuda (debt_ratio) y el salario del último mes. Esto implica que, a medida que el ratio de deuda aumenta, el salario del último mes tiende a disminuir ligeramente, pero la relación es muy débil.
+  Interpretación:
+   Hay una correlación negativa muy baja entre el ratio de deuda (debt_ratio) y el salario del último mes. Esto implica que, a medida que el ratio de deuda aumenta, el salario del último mes tiende a disminuir ligeramente, pero la relación es muy débil.
 
   Debt_ratio / Using_lines_not_secured_personal_asset
-  Interpretación: Hay una correlación positiva extremadamente baja entre el ratio de deuda y el uso de líneas de crédito no aseguradas. Esto indica que el uso de líneas de crédito no aseguradas tiende a aumentar ligeramente con el aumento del ratio de deuda, pero la relación es prácticamente insignificante.
+  Interpretación: 
+  Hay una correlación positiva extremadamente baja entre el ratio de deuda y el uso de líneas de crédito no aseguradas. Esto indica que el uso de líneas de crédito no aseguradas tiende a aumentar ligeramente con el aumento del ratio de deuda, pero la relación es prácticamente insignificante.
 
 5.- Calcular riesgo relativo
 
@@ -304,7 +317,7 @@ Se analizan las variables para determinar el número de veces que corre el riesg
 
   Age
  
- > [!NOTE] 
+ > 
  >![Captura de pantalla 2024-07-31 153706](https://github.com/user-attachments/assets/f3bfee0a-026f-4770-a92a-0be0baf02d72)
 
  Interpretación: 
@@ -314,7 +327,7 @@ Se analizan las variables para determinar el número de veces que corre el riesg
 
 Last_salary_month
 
- > [!NOTE] 
+ > 
  >![Captura de pantalla 2024-07-31 153748](https://github.com/user-attachments/assets/63e646bd-0d7f-4b05-9d7d-66e6ff0a49c1)
 
   Interpretación: 
@@ -325,7 +338,7 @@ posibilidades de incumplir en sus pagos.
 
 Number_dependents
 
- > [!NOTE] 
+ > 
  >![Captura de pantalla 2024-07-31 153846](https://github.com/user-attachments/assets/ba0678f7-db8e-4045-b735-a81f7af93551)
 
  Interpretación: 
@@ -335,7 +348,7 @@ Number_dependents
    
 Debt_ratio
 
- > [!NOTE] 
+ > 
  >![Captura de pantalla 2024-07-31 153931](https://github.com/user-attachments/assets/05b0f95f-765e-4b0c-abfd-f762be96bb16)
 
  Interpretación: 
@@ -345,7 +358,7 @@ Debt_ratio
 
 Using_lines_not_secured_personal_asset
 
- > [!NOTE] 
+ > 
  >![Captura de pantalla 2024-07-31 154416](https://github.com/user-attachments/assets/0578e5de-456c-439d-8166-38c0a81abae4)
 
 Interpretación: 
@@ -377,7 +390,7 @@ El objetivo es determinar cómo estas variables influyen en el riesgo de incumpl
 
 El modelo de regresión logística calcula una probabilidad de incumplimiento para cada registro. Esta probabilidad se convierte en un resultado binario utilizando un umbral (generalmente 0.5). Si la probabilidad es mayor que el umbral, el resultado es 1 (incumplimiento), de lo contrario, es 0 (no incumplimiento).
 
- > [!NOTE] 
+ > 
  >![Captura de pantalla 2024-08-01 123140](https://github.com/user-attachments/assets/b665d54b-ec59-43f0-b920-d7cc261e0daa)
   
 
@@ -385,7 +398,7 @@ El modelo de regresión logística calcula una probabilidad de incumplimiento pa
 
 La matriz de confusión te permite evaluar el rendimiento del modelo comparando las predicciones con los valores reales de default_flag.
 
-> [!NOTE] 
+> 
 >![Captura de pantalla 2024-08-01 123806](https://github.com/user-attachments/assets/edddf909-9f10-4061-8e36-8da34aff80c4)
 
 Resultados Matriz de Confusión:
@@ -408,10 +421,10 @@ Examina cómo una variable afecta directamente a otra, analizamos cómo ciertas 
 
 Age:
 
-> [!NOTE] 
+> 
 >![age-default (2)](https://github.com/user-attachments/assets/d8e1d074-61cf-4c7d-a97d-f99a04ce7e8d)
 
-> [!NOTE] 
+> 
 >![age-default (2)](https://github.com/user-attachments/assets/27069467-6081-4730-8524-259463064910)
 
 Interpretación:
@@ -424,10 +437,10 @@ Interpretación:
 
 Last_month_Salary
 
-> [!NOTE] 
+> 
 >![Last_Month (2)](https://github.com/user-attachments/assets/f467dee4-6b69-4849-96be-a27ab8721c90)
 
-> [!NOTE] 
+> 
 >![Last_Month (1)](https://github.com/user-attachments/assets/ee0342ef-9858-42cd-b462-dff4ca9fdb2d)
 
 Interpretación:
@@ -438,10 +451,10 @@ Interpretación:
 
 Debt Ratio
 
-> [!NOTE] 
+>  
 >![Debt-default (2)](https://github.com/user-attachments/assets/f9dcaa85-7a00-46a8-ad81-d47538454ed8)
 
-> [!NOTE] 
+> 
 >![Debt-default (2)](https://github.com/user-attachments/assets/f9dcaa85-7a00-46a8-ad81-d47538454ed8)
 
 Interpretación:
@@ -450,10 +463,10 @@ Interpretación:
 
 Using_lines_not_secured_personal_asset
 
-> [!NOTE] 
+> 
 >![alt text](image.png)
 
-> [!NOTE] 
+> 
 >![alt text](image-1.png)
  
 Interpretación:
@@ -466,10 +479,10 @@ Interpretación:
 
 Delay 30-59-90
 
-> [!NOTE] 
+> 
 >![alt text](image-2.png)
 
-> [!NOTE] 
+> 
 >![alt text](image-3.png)
 
 Interpretación:
@@ -520,11 +533,11 @@ Estas recomendaciones buscan asegurar que el modelo no solo sea preciso, sino ta
 ## **Recursos**
 
 ### Presentación del Proyecto 
-Accede a la presentación del proyecto [aquí](https://drive.google.com/file/d/1GdkslQ3pPk7i1k2rmBQY7mdTkbuySkSC/view?usp=sharing)
+Accede a la presentación del proyecto haciendo clic [aquí](https://drive.google.com/file/d/1GdkslQ3pPk7i1k2rmBQY7mdTkbuySkSC/view?usp=sharing)
 
 ### Presentación del Proyecto (Loom)
-Accede a la presentación del proyecto en video [aquí](https://www.loom.com/share/4c20f9ee3cc84ed9ba70d407a3001e4a?sid=c3fff1cb-befa-444c-9c47-3d5bd6350082)
+Accede a la presentación del proyecto en video haciendo clic [aquí](https://www.loom.com/share/4c20f9ee3cc84ed9ba70d407a3001e4a?sid=c3fff1cb-befa-444c-9c47-3d5bd6350082)
 
 ### Dashboard 
-Accede al PDF de mi dashboard de Power BI haciendo clic [aquí](https://lookerstudio.google.com/s/hZ4DBBeUt_0).
+Accede dashboard en Looker Studio haciendo clic [aquí](https://lookerstudio.google.com/s/hZ4DBBeUt_0).
 
