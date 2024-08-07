@@ -1,5 +1,7 @@
 # Proyecto 3.- Riesgo Relativo
 
+> ![_ff594081-cbea-43c3-90be-a50f56471a6f](https://github.com/user-attachments/assets/f2d45e0b-be22-44d4-81e6-a7de9a35e724)
+
 Automatizar y optimizar el proceso de análisis crediticio para gestionar eficazmente el riesgo de incumplimiento
 
 ### Temas
@@ -137,7 +139,7 @@ Outliers:
   Nuevas Variables:
   + delay-30_59_90: Se realiza la limpieza de los Outliers, así como la suma de las 3 variables de tiempo de retraso para crear esta columna.
   + segmentacion_delay: Segmentación con base en los días de retraso.
-  + Incumplimiento_debt_ratio: Segmentación para riesgo de incumplimiento de pago en debt_ratio.
+  + incumplimiento_debt_ratio: Segmentación para riesgo de incumplimiento de pago en debt_ratio.
       + Debt ratio bajo: Indica que una persona tiene poca deuda en relación con sus ingresos disponibles o activos
         + Mayor capacidad de manejar deuda.
         + Mejor capacidad de obtener crédito adicional.
@@ -152,7 +154,7 @@ Outliers:
            + Riesgo_medio: Cuando debt_ratio > 40-60% (0.4- 0.6)
            + Riesgo_bajo: Cuando debt_ratio < 30% (0.3)
              
-  + Incumplimiento_unsec_line: La segmentación de riesgo se utiliza para clasificar a los clientes en diferentes niveles según su solvencia crediticia. Aquí están los tres niveles comunes:
+  + incumplimiento_unsec_line: La segmentación de riesgo se utiliza para clasificar a los clientes en diferentes niveles según su solvencia crediticia. Aquí están los tres niveles comunes:
       + Alto Riesgo: Clientes con una mayor probabilidad de incumplimiento o retraso en los pagos.
       + Medio Riesgo: Clientes con un riesgo moderado, que pueden cumplir con sus obligaciones, pero con cierta incertidumbre.
       + Bajo Riesgo: Clientes con una alta probabilidad de cumplir con sus pagos de manera puntual.
@@ -539,5 +541,5 @@ Accede a la presentación del proyecto haciendo clic [aquí](https://drive.googl
 Accede a la presentación del proyecto en video haciendo clic [aquí](https://www.loom.com/share/4c20f9ee3cc84ed9ba70d407a3001e4a?sid=c3fff1cb-befa-444c-9c47-3d5bd6350082)
 
 ### Dashboard 
-Accede dashboard en Looker Studio haciendo clic [aquí](https://lookerstudio.google.com/s/hZ4DBBeUt_0).
+Accede dashboard en Looker Studio haciendo clic [aquí]([https://lookerstudio.google.com/s/hZ4DBBeUt_0](https://lookerstudio.google.com/reporting/06d7c865-eb81-42b8-8693-1a75653d46ed)).
 
