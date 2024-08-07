@@ -522,6 +522,9 @@ Estas recomendaciones buscan asegurar que el modelo no solo sea preciso, sino ta
 ### Presentación del Proyecto 
 Accede a la presentación del proyecto [aquí](https://drive.google.com/file/d/1GdkslQ3pPk7i1k2rmBQY7mdTkbuySkSC/view?usp=sharing)
 
+### Presentación del Proyecto (Loom)
+Accede a la presentación del proyecto en video [aquí](https://www.loom.com/share/4c20f9ee3cc84ed9ba70d407a3001e4a?sid=c3fff1cb-befa-444c-9c47-3d5bd6350082)
+
 ### Dashboard 
 Accede al PDF de mi dashboard de Power BI haciendo clic [aquí](https://lookerstudio.google.com/s/hZ4DBBeUt_0).
 
